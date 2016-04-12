@@ -1,14 +1,13 @@
 package model;
 
-import java.util.Date;
 
 public class EmployeeModel {
 	
 	public String nome;
 	public String matricula;
 	public String tipo;
-	public Date admissao;
-	public Date dataNascimento;
+	public String admissao;
+	public String dataNascimento;
 	public String sexo;
 	public String RG;
 	public String orgaoRG;
@@ -37,17 +36,17 @@ public class EmployeeModel {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Date getAdmissao() {
+	public String getAdmissao() {
 		return admissao;
 	}
-	public void setAdmissao(Date admissao) {
-		this.admissao = admissao;
+	public void setAdmissao(String string) {
+		this.admissao = string;
 	}
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(String string) {
+		this.dataNascimento = string;
 	}
 	public String getSexo() {
 		return sexo;
