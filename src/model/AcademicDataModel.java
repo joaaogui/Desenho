@@ -8,6 +8,14 @@ public class AcademicDataModel {
 	public String posGraduacao;
 	
 	
+	public AcademicDataModel(String escolaridade, String curso, String licenciatura, String instituicao,
+			String posGraduacao) {
+		this.escolaridade = escolaridade;
+		this.curso = curso;
+		this.licenciatura = licenciatura;
+		this.instituicao = instituicao;
+		this.posGraduacao = posGraduacao;
+	}
 	public String getEscolaridade() {
 		return escolaridade;
 	}
