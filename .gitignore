@@ -1,1 +1,8 @@
 /bin/
+
+#gitignore temporary file
+  .gitignore~
+
+# Eclipse project files
+  *.classpath
+  *.project
