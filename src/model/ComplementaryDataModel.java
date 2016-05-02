@@ -8,11 +8,29 @@ public class ComplementaryDataModel {
 	public String pisPasep;
 	public String emissaoPis;
 	public String tituloEleitoral;
-	public String znoaEleitoral;
+	public String zonaEleitoral;
 	public String estadoCivil;
 	public String nomeConjuge;
 	public String nomePai;
 	public String nomeMae;
+	
+	public ComplementaryDataModel(String nacionalidade, String naturalidade, String UF, String raca,
+			String pisPasep, String emissaoPis, String tituloEleitoral, String zonaEleitoral, String estadoCivil,
+			String nomeConjuge, String nomePai, String nomeMae) {
+		this.nacionalidade = nacionalidade;
+		this.naturalidade = naturalidade;
+		this.UF = UF;
+		this.raca = raca;
+		this.pisPasep = pisPasep;
+		this.emissaoPis = emissaoPis;
+		this.tituloEleitoral = tituloEleitoral;
+		this.zonaEleitoral = zonaEleitoral;
+		this.estadoCivil = estadoCivil;
+		this.nomeConjuge = nomeConjuge;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+	}
+	
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
@@ -55,11 +73,11 @@ public class ComplementaryDataModel {
 	public void setTituloEleitoral(String tituloEleitoral) {
 		this.tituloEleitoral = tituloEleitoral;
 	}
-	public String getZnoaEleitoral() {
-		return znoaEleitoral;
+	public String getZonaEleitoral() {
+		return zonaEleitoral;
 	}
-	public void setZnoaEleitoral(String znoaEleitoral) {
-		this.znoaEleitoral = znoaEleitoral;
+	public void setZonaEleitoral(String znoaEleitoral) {
+		this.zonaEleitoral = znoaEleitoral;
 	}
 	public String getEstadoCivil() {
 		return estadoCivil;
