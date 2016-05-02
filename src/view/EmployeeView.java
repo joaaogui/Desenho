@@ -6,7 +6,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -153,7 +152,8 @@ public class EmployeeView {
 		btnSalvar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) { 
-				EmployeeModel employee = new EmployeeModel();
+				EmployeeModel employee = new EmployeeModel(nomeField.getText(), matriculaField.getText(), tipoField.getText(), admissaoField.getText(), 
+						dataNascField.getText(), sexoField.getText(), rgField.getText(), orgaoRgField.getText(), cpfField.getText());
 					employee.setMatricula(matriculaField.getText());
 					employee.setNome(nomeField.getText()); 
 					employee.setTipo(tipoField.getText()); 
@@ -173,7 +173,7 @@ public class EmployeeView {
 							JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios"); 
 				} else {   
 						EmployeeController employeeController = new EmployeeController();  
-						employeeController.adiciona(employee); 
+						employeeController.addEmployee(employee); 
 						JOptionPane.showMessageDialog(null, "Usuário "+nomeField.getText()+" inserido com sucesso! "); 
 						} 
 				// apaga os dados preenchidos nos campos de texto 

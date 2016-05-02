@@ -15,9 +15,24 @@ public class EmployeeModel {
 	
 	
 	public EmployeeContactModel contato;
-	public complementaryDataModel dadosComplementares;
-	public academicDataModel dadosAcademicos;
-	public functionalDataModel dadosFuncionais;
+	public ComplementaryDataModel dadosComplementares;
+	public AcademicDataModel dadosAcademicos;
+	public FunctionalDataModel dadosFuncionais;
+	
+	
+	public EmployeeModel(String nome, String matricula, String tipo, String admissao, String dataNascimento,
+						 String sexo, String RG, String orgaoRG, String CPF) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.tipo = tipo;
+		this.admissao = admissao;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.RG = RG;
+		this.orgaoRG = orgaoRG;
+		this.CPF = CPF;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -78,22 +93,22 @@ public class EmployeeModel {
 	public void setContato(EmployeeContactModel contato) {
 		this.contato = contato;
 	}
-	public complementaryDataModel getDadosComplementares() {
+	public ComplementaryDataModel getDadosComplementares() {
 		return dadosComplementares;
 	}
-	public void setDadosComplementares(complementaryDataModel dadosComplementares) {
+	public void setDadosComplementares(ComplementaryDataModel dadosComplementares) {
 		this.dadosComplementares = dadosComplementares;
 	}
-	public academicDataModel getDadosAcademicos() {
+	public AcademicDataModel getDadosAcademicos() {
 		return dadosAcademicos;
 	}
-	public void setDadosAcademicos(academicDataModel dadosAcademicos) {
+	public void setDadosAcademicos(AcademicDataModel dadosAcademicos) {
 		this.dadosAcademicos = dadosAcademicos;
 	}
-	public functionalDataModel getDadosFuncionais() {
+	public FunctionalDataModel getDadosFuncionais() {
 		return dadosFuncionais;
 	}
-	public void setDadosFuncionais(functionalDataModel dadosFuncionais) {
+	public void setDadosFuncionais(FunctionalDataModel dadosFuncionais) {
 		this.dadosFuncionais = dadosFuncionais;
 	}
 	

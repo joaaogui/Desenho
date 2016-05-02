@@ -1,6 +1,6 @@
 package model;
 
-public class complementaryDataModel {
+public class ComplementaryDataModel {
 	public String nacionalidade;
 	public String naturalidade;
 	public String UF;

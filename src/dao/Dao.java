@@ -5,7 +5,8 @@ import java.sql.DriverManager; // driver de conexão SQL para Java
 import java.sql.SQLException; // classe para tratamento de exceções 
 
 public class Dao {     
-	public Connection getConnection() {         
+	public Connection getConnection() {
+		
 		try {             
 			return DriverManager.getConnection("jdbc:mysql://localhost/sgp","root","root");         
 			}         

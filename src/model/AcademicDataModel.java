@@ -1,6 +1,6 @@
 package model;
 
-public class academicDataModel {
+public class AcademicDataModel {
 	public String escolaridade;
 	public String curso;
 	public String licenciatura;

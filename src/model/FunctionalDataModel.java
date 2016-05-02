@@ -1,7 +1,7 @@
 package model;
 
 
-public class functionalDataModel {
+public class FunctionalDataModel {
 	public String cargo;
 	public String disciplinaDeConcurso;
 	public String funcao;
