@@ -20,7 +20,7 @@ public class ComplementaryDataController {
 		
 		ComplementaryDataModel complementaryData;
 		
-		complementaryData = new ComplementaryDataModel(nacionalidade, naturalidade, UF ,raca, pisPasep, emissaoPis, tituloEleitoral, zonaEleitoral, estadoCivil, nomeConjuge, nomePai, nomeMae){)
+		complementaryData = new ComplementaryDataModel(nacionalidade, naturalidade, UF ,raca, pisPasep, emissaoPis, tituloEleitoral, zonaEleitoral, estadoCivil, nomeConjuge, nomePai, nomeMae);
 		
 		return complementaryData;
 	}
