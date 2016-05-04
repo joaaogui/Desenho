@@ -15,16 +15,24 @@ import java.awt.event.ActionEvent;
 
 public class EmployeeView {
 
-	private JFrame frame;
-	private JTextField matriculaField;
-	private JTextField nomeField;
-	private JTextField tipoField;
-	private JTextField sexoField;
-	private JTextField dataNascField;
-	private JTextField admissaoField;
-	private JTextField cpfField;
-	private JTextField orgaoRgField;
-	private JTextField rgField;
+	static JFrame frame;
+	static JTextField matriculaField;
+	static JTextField nomeField;
+	static JTextField tipoField;
+	static JTextField sexoField;
+	static JTextField dataNascField;
+	static JTextField admissaoField;
+	static JTextField cpfField;
+	static JTextField orgaoRgField;
+	static JTextField rgField;
+	static JTextField enderecoField;
+	static JTextField bairroField;
+	static JTextField cidadeField;
+	static JTextField ufField;
+	static JTextField cepField;
+	static JTextField telfixoField;
+	static JTextField celularField;
+	static JTextField emailField;
 
 	/**
 	 * Launch the application.
@@ -54,7 +62,7 @@ public class EmployeeView {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 642, 375);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -78,42 +86,42 @@ public class EmployeeView {
 		
 		nomeField = new JTextField();
 		nomeField.setColumns(10);
-		nomeField.setBounds(77, 92, 286, 20);
+		nomeField.setBounds(77, 92, 539, 20);
 		frame.getContentPane().add(nomeField);
 		
 		tipoField = new JTextField();
 		tipoField.setColumns(10);
-		tipoField.setBounds(77, 113, 286, 20);
+		tipoField.setBounds(77, 113, 129, 20);
 		frame.getContentPane().add(tipoField);
 		
 		sexoField = new JTextField();
 		sexoField.setColumns(10);
-		sexoField.setBounds(77, 161, 21, 20);
+		sexoField.setBounds(77, 135, 21, 20);
 		frame.getContentPane().add(sexoField);
 		
 		dataNascField = new JTextField();
 		dataNascField.setColumns(10);
-		dataNascField.setBounds(277, 133, 86, 20);
+		dataNascField.setBounds(511, 113, 105, 20);
 		frame.getContentPane().add(dataNascField);
 		
 		admissaoField = new JTextField();
 		admissaoField.setColumns(10);
-		admissaoField.setBounds(77, 133, 86, 20);
+		admissaoField.setBounds(277, 113, 119, 20);
 		frame.getContentPane().add(admissaoField);
 		
 		cpfField = new JTextField();
 		cpfField.setColumns(10);
-		cpfField.setBounds(76, 183, 86, 20);
+		cpfField.setBounds(416, 135, 200, 20);
 		frame.getContentPane().add(cpfField);
 		
 		orgaoRgField = new JTextField();
 		orgaoRgField.setColumns(10);
-		orgaoRgField.setBounds(265, 161, 98, 20);
+		orgaoRgField.setBounds(277, 135, 98, 20);
 		frame.getContentPane().add(orgaoRgField);
 		
 		rgField = new JTextField();
 		rgField.setColumns(10);
-		rgField.setBounds(129, 161, 77, 20);
+		rgField.setBounds(129, 135, 77, 20);
 		frame.getContentPane().add(rgField);
 		
 		JLabel label = new JLabel("Nome:");
@@ -125,71 +133,39 @@ public class EmployeeView {
 		frame.getContentPane().add(lblTipo);
 		
 		JLabel lblSexo = new JLabel("Sexo:");
-		lblSexo.setBounds(21, 161, 46, 14);
+		lblSexo.setBounds(21, 138, 46, 14);
 		frame.getContentPane().add(lblSexo);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento:");
-		lblDataDeNascimento.setBounds(173, 136, 107, 14);
+		lblDataDeNascimento.setBounds(406, 116, 107, 14);
 		frame.getContentPane().add(lblDataDeNascimento);
 		
 		JLabel lblAdmisso = new JLabel("Admiss\u00E3o:");
-		lblAdmisso.setBounds(21, 136, 57, 14);
+		lblAdmisso.setBounds(216, 116, 57, 14);
 		frame.getContentPane().add(lblAdmisso);
 		
 		JLabel lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(21, 186, 46, 14);
+		lblCpf.setBounds(385, 138, 46, 14);
 		frame.getContentPane().add(lblCpf);
 		
 		JLabel lblrgoRg = new JLabel("\u00D3rg\u00E3o RG:");
-		lblrgoRg.setBounds(211, 164, 69, 14);
+		lblrgoRg.setBounds(216, 138, 69, 14);
 		frame.getContentPane().add(lblrgoRg);
 		
 		JLabel lblRg = new JLabel("RG:");
-		lblRg.setBounds(108, 164, 46, 14);
+		lblRg.setBounds(108, 138, 46, 14);
 		frame.getContentPane().add(lblRg);
 		
-		JButton btnSalvar = new JButton("Salvar");
+		JButton btnSalvar = new JButton("Avan\u00E7ar");
 		btnSalvar.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) { 
-				EmployeeModel employee = new EmployeeModel(nomeField.getText(), matriculaField.getText(), tipoField.getText(), admissaoField.getText(), 
-						dataNascField.getText(), sexoField.getText(), rgField.getText(), orgaoRgField.getText(), cpfField.getText());
-					employee.setMatricula(matriculaField.getText());
-					employee.setNome(nomeField.getText()); 
-					employee.setTipo(tipoField.getText()); 
-					employee.setAdmissao(admissaoField.getText());
-					employee.setDataNascimento(dataNascField.getText());
-					employee.setSexo(sexoField.getText());
-					employee.setRG(rgField.getText());
-					employee.setOrgaoRG(orgaoRgField.getText());
-					employee.setCPF(cpfField.getText());  
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
 				
-				// fazendo a validação dos dados 
-				if ((matriculaField.getText().isEmpty()) || (nomeField.getText().isEmpty()) || 
-						(tipoField.getText().isEmpty()) || (admissaoField.getText().isEmpty()) ||
-						(dataNascField.getText().isEmpty()) || (sexoField.getText().isEmpty()) ||
-						(rgField.getText().isEmpty()) || (orgaoRgField.getText().isEmpty()) ||
-						(cpfField.getText().isEmpty())) {    
-							JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios"); 
-				} else {   
-						EmployeeController employeeController = new EmployeeController();  
-						employeeController.addEmployee(employee); 
-						JOptionPane.showMessageDialog(null, "Usuário "+nomeField.getText()+" inserido com sucesso! "); 
-						} 
-				// apaga os dados preenchidos nos campos de texto 
-				matriculaField.setText(""); 
-				nomeField.setText("");
-				tipoField.setText("");
-				admissaoField.setText("");
-				dataNascField.setText("");
-				sexoField.setText("");
-				rgField.setText("");
-				orgaoRgField.setText("");
-				cpfField.setText("");
-				}
+			}
+			
 		});
 		
-		btnSalvar.setBounds(21, 227, 89, 23);
+		btnSalvar.setBounds(21, 301, 89, 23);
 		frame.getContentPane().add(btnSalvar);
 		
 		JButton btnSair = new JButton("Sair");
@@ -198,7 +174,79 @@ public class EmployeeView {
 				System.exit(0);
 			}
 		});
-		btnSair.setBounds(335, 227, 89, 23);
+		btnSair.setBounds(527, 301, 89, 23);
 		frame.getContentPane().add(btnSair);
+		
+		JLabel lblEndereo = new JLabel("Endere\u00E7o:");
+		lblEndereo.setBounds(21, 178, 57, 14);
+		frame.getContentPane().add(lblEndereo);
+		
+		JLabel lblNewLabel = new JLabel("Bairro:");
+		lblNewLabel.setBounds(406, 178, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblCidade = new JLabel("Cidade:");
+		lblCidade.setBounds(21, 203, 46, 14);
+		frame.getContentPane().add(lblCidade);
+		
+		enderecoField = new JTextField();
+		enderecoField.setBounds(77, 175, 319, 20);
+		frame.getContentPane().add(enderecoField);
+		enderecoField.setColumns(10);
+		
+		bairroField = new JTextField();
+		bairroField.setBounds(449, 175, 167, 20);
+		frame.getContentPane().add(bairroField);
+		bairroField.setColumns(10);
+		
+		cidadeField = new JTextField();
+		cidadeField.setBounds(77, 203, 319, 20);
+		frame.getContentPane().add(cidadeField);
+		cidadeField.setColumns(10);
+		
+		JLabel lblUf = new JLabel("UF:");
+		lblUf.setBounds(406, 203, 25, 14);
+		frame.getContentPane().add(lblUf);
+		
+		ufField = new JTextField();
+		ufField.setBounds(427, 200, 39, 20);
+		frame.getContentPane().add(ufField);
+		ufField.setColumns(10);
+		
+		cepField = new JTextField();
+		cepField.setBounds(511, 200, 105, 20);
+		frame.getContentPane().add(cepField);
+		cepField.setColumns(10);
+		
+		JLabel lblCep = new JLabel("CEP:");
+		lblCep.setBounds(479, 203, 34, 14);
+		frame.getContentPane().add(lblCep);
+		
+		JLabel lblTelefoneFixo = new JLabel("Telefone Fixo:");
+		lblTelefoneFixo.setBounds(113, 228, 77, 14);
+		frame.getContentPane().add(lblTelefoneFixo);
+		
+		telfixoField = new JTextField();
+		telfixoField.setBounds(200, 225, 147, 20);
+		frame.getContentPane().add(telfixoField);
+		telfixoField.setColumns(10);
+		
+		JLabel lblCelular = new JLabel("Celular:");
+		lblCelular.setBounds(357, 228, 39, 14);
+		frame.getContentPane().add(lblCelular);
+		
+		celularField = new JTextField();
+		celularField.setColumns(10);
+		celularField.setBounds(396, 225, 147, 20);
+		frame.getContentPane().add(celularField);
+		
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setBounds(52, 252, 39, 14);
+		frame.getContentPane().add(lblEmail);
+		
+		emailField = new JTextField();
+		emailField.setBounds(89, 249, 527, 20);
+		frame.getContentPane().add(emailField);
+		emailField.setColumns(10);
 	}
 }
