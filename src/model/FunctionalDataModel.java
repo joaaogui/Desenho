@@ -7,7 +7,19 @@ public class FunctionalDataModel {
 	public String funcao;
 	public String entrada;
 	public String saida;
-	public String COPIExterna;
+	public String copiExterna;
+	
+	
+	
+	public FunctionalDataModel(String cargo, String disciplinaDeConcurso, String funcao, String entrada, String saida,
+			String copiExterna) {
+		this.cargo = cargo;
+		this.disciplinaDeConcurso = disciplinaDeConcurso;
+		this.funcao = funcao;
+		this.entrada = entrada;
+		this.saida = saida;
+		this.copiExterna = copiExterna;
+	}
 	public String getCargo() {
 		return cargo;
 	}
@@ -38,11 +50,11 @@ public class FunctionalDataModel {
 	public void setSaida(String saida) {
 		this.saida = saida;
 	}
-	public String getCOPIExterna() {
-		return COPIExterna;
+	public String getCopiExterna() {
+		return copiExterna;
 	}
-	public void setCOPIExterna(String cOPIExterna) {
-		COPIExterna = cOPIExterna;
+	public void setCOPIExterna(String copiExterna) {
+		this.copiExterna = copiExterna;
 	}
 	
 	

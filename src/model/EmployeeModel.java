@@ -9,9 +9,9 @@ public class EmployeeModel {
 	public String admissao;
 	public String dataNascimento;
 	public String sexo;
-	public String RG;
+	public String rg;
 	public String orgaoRG;
-	public String CPF;
+	public String cpf;
 	
 	
 	public EmployeeContactModel contato;
@@ -19,9 +19,10 @@ public class EmployeeModel {
 	public AcademicDataModel dadosAcademicos;
 	public FunctionalDataModel dadosFuncionais;
 	
-	
+	/**
 	public EmployeeModel(String nome, String matricula, String tipo, String admissao, String dataNascimento,
-						 String sexo, String RG, String orgaoRG, String CPF) {
+						 String sexo, String RG, String orgaoRG, String CPF, EmployeeContactModel contato, 
+						 ComplementaryDataModel dadosComplementares, AcademicDataModel dadosAcademicos, FunctionalDataModel dadosFuncionais) {
 		this.nome = nome;
 		this.matricula = matricula;
 		this.tipo = tipo;
@@ -31,8 +32,46 @@ public class EmployeeModel {
 		this.RG = RG;
 		this.orgaoRG = orgaoRG;
 		this.CPF = CPF;
+		
 	}
+	*/	
 	
+	public EmployeeModel(String nome, String matricula, String tipo, String admissao, String dataNascimento,
+			String sexo, String rg, String orgaoRG, String cpf, EmployeeContactModel contato,
+			ComplementaryDataModel dadosComplementares, AcademicDataModel dadosAcademicos,
+			FunctionalDataModel dadosFuncionais) {
+		super();
+		this.nome = nome;
+		this.matricula = matricula;
+		this.tipo = tipo;
+		this.admissao = admissao;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.rg = rg;
+		this.orgaoRG = orgaoRG;
+		this.cpf = cpf;
+		this.contato = contato;
+		this.dadosComplementares = dadosComplementares;
+		this.dadosAcademicos = dadosAcademicos;
+		this.dadosFuncionais = dadosFuncionais;
+	}
+
+		
+	public EmployeeModel(String nome, String matricula, String tipo, String admissao, String dataNascimento,
+			String sexo, String rg, String orgaoRG, String cpf) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.tipo = tipo;
+		this.admissao = admissao;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.rg = rg;
+		this.orgaoRG = orgaoRG;
+		this.cpf = cpf;
+	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
@@ -70,10 +109,10 @@ public class EmployeeModel {
 		this.sexo = sexo;
 	}
 	public String getRG() {
-		return RG;
+		return rg;
 	}
-	public void setRG(String rG) {
-		RG = rG;
+	public void setRG(String rg) {
+		this.rg = rg;
 	}
 	public String getOrgaoRG() {
 		return orgaoRG;
@@ -82,10 +121,10 @@ public class EmployeeModel {
 		this.orgaoRG = orgaoRG;
 	}
 	public String getCPF() {
-		return CPF;
+		return cpf;
 	}
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCPF(String cpf) {
+		this.cpf = cpf;
 	}
 	public EmployeeContactModel getContato() {
 		return contato;
