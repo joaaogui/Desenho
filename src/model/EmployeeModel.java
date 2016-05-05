@@ -1,22 +1,46 @@
 package model;
+import javax.persistence.*;
 
-
+@Entity
 public class EmployeeModel {
 	
+	@Id
+	@GeneratedValue
+	@Column  
+	public int id;
+	@Column
 	public String nome;
+	@Column
 	public String matricula;
+	@Column
 	public String tipo;
+	@Column
 	public String admissao;
+	@Column
 	public String dataNascimento;
+	@Column
 	public String sexo;
+	@Column
 	public String rg;
+	@Column
 	public String orgaoRG;
+	@Column
 	public String cpf;
 	
-	
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
 	public EmployeeContactModel contato;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
 	public ComplementaryDataModel dadosComplementares;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
 	public AcademicDataModel dadosAcademicos;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
 	public FunctionalDataModel dadosFuncionais;
 	
 	/**

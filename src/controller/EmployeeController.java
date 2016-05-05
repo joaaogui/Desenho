@@ -1,6 +1,9 @@
 package controller;
 
-import dao.EmployeeDao;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import model.AcademicDataModel;
 import model.ComplementaryDataModel;
 import model.EmployeeContactModel;
@@ -9,16 +12,6 @@ import model.FunctionalDataModel;
 
 public class EmployeeController {
 
-	private EmployeeDao employeeDao;
-	
-	public EmployeeController(){
-		employeeDao = new EmployeeDao();
-		
-	}
-	
-	public void setEmployeeDao(EmployeeDao employeeDao) {
-		this.employeeDao = employeeDao;
-	}
 	 	
 	public EmployeeModel newEmployee(String nome, String matricula, String tipo, String admissao, String dataNascimento,
 			 String sexo, String rg, String orgaoRG, String cpf, EmployeeContactModel contato, ComplementaryDataModel dadosComplementares,
@@ -28,8 +21,16 @@ public class EmployeeController {
 	
 		return employee;
 	}
+
+	public void addEmployee(EmployeeModel employee) {
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Employee");
+		EntityManager manager = factory.createEntityManager();
+
+		manager.getTransaction().begin();    
+		manager.persist(employee);
+		manager.getTransaction().commit();
+		
+	}
 	
-	public void addEmployee(EmployeeModel employee){      
-		employeeDao.save(employee);
-	} 
 }

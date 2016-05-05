@@ -1,16 +1,36 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class ComplementaryDataModel {
+	
+	@Id
+	@GeneratedValue
+	@Column
+	public int id;
+	@Column
 	public String nacionalidade;
+	@Column
 	public String naturalidade;
+	@Column
 	public String raca;
+	@Column
 	public String pisPasep;
+	@Column
 	public String emissaoPis;
+	@Column
 	public String tituloEleitoral;
+	@Column
 	public String zonaEleitoral;
+	@Column
 	public String estadoCivil;
+	@Column
 	public String nomeConjuge;
+	@Column
 	public String nomePai;
+	@Column
 	public String nomeMae;
 	
 	public ComplementaryDataModel(String nacionalidade, String naturalidade, String raca,

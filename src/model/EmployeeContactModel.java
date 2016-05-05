@@ -1,14 +1,28 @@
 package model;
+import javax.persistence.*;
 
 public class EmployeeContactModel {
 	
+	
+	@Id
+	@GeneratedValue
+	@Column
+	public int id;
+	@Column
 	public String endereco;
+	@Column
 	public String bairro;
+	@Column
 	public String cidade;
+	@Column
 	public String uf;
+	@Column
 	public String cep;
+	@Column
 	public String telFixo;
+	@Column
 	public String telCelular;
+	@Column
 	public String email;
 	
 	

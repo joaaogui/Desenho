@@ -1,10 +1,24 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class AcademicDataModel {
+	
+	@Id
+	@GeneratedValue
+	@Column
+	public int id;
+	@Column
 	public String escolaridade;
+	@Column
 	public String curso;
+	@Column
 	public String licenciatura;
+	@Column
 	public String instituicao;
+	@Column
 	public String posGraduacao;
 	
 	

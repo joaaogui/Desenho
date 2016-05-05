@@ -1,12 +1,24 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 public class FunctionalDataModel {
+	
+	@Id
+	@GeneratedValue
+	@Column
 	public String cargo;
+	@Column
 	public String disciplinaDeConcurso;
+	@Column
 	public String funcao;
+	@Column
 	public String entrada;
+	@Column
 	public String saida;
+	@Column
 	public String copiExterna;
 	
 	
