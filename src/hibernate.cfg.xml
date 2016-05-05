@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/desenho</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- AcademicData -->
+		<mapping class="Desenho.src.model.AcademicDataModel" />
+		
+		<!-- ComplementaryData -->
+		<mapping class="Desenho.src.model.ComplementaryDataModel" />
+		
+		<!-- EmplooyeeContact -->
+		<mapping class="Desenho.src.model.EmployeeContactModel" />
+		
+		<!-- Employee -->
+		<mapping class="Desenho.src.model.EmployeeModel" />
+		
+		<!-- FunctionalData -->
+		<mapping class="Desenho.src.model.FunctionalDataModel" />
+		
+    </session-factory>
+</hibernate-configuration>
