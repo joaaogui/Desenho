@@ -13,10 +13,10 @@
 
    <!-- entidade mapeada -->
    <class>Desenho.src.model.EmployeeModel</class>
-   <class>Desenho.src.model.AcademicDataModel</class>
+   <!--<class>Desenho.src.model.AcademicDataModel</class>
    <class>Desenho.src.model.ComplementaryDataModel</class>
    <class>Desenho.src.model.EmployeeContactModel</class>
-   <class>Desenho.src.model.FunctionalDataModel</class>
+   <class>Desenho.src.model.FunctionalDataModel</class> -->
                
                
    <properties>

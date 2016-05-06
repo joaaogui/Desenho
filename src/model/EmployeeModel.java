@@ -27,21 +27,21 @@ public class EmployeeModel {
 	@Column
 	public String cpf;
 	
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-	public EmployeeContactModel contato;
+  //  @OneToOne(cascade = CascadeType.ALL)
+  //  @PrimaryKeyJoinColumn
+	//public EmployeeContactModel contato;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-	public ComplementaryDataModel dadosComplementares;
+ //   @OneToOne(cascade = CascadeType.ALL)
+  //  @PrimaryKeyJoinColumn
+//	public ComplementaryDataModel dadosComplementares;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-	public AcademicDataModel dadosAcademicos;
+ //   @OneToOne(cascade = CascadeType.ALL)
+  //  @PrimaryKeyJoinColumn
+	//public AcademicDataModel dadosAcademicos;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-	public FunctionalDataModel dadosFuncionais;
+ // @OneToOne(cascade = CascadeType.ALL)
+  //  @PrimaryKeyJoinColumn
+	//public FunctionalDataModel dadosFuncionais;
 	
 	/**
 	public EmployeeModel(String nome, String matricula, String tipo, String admissao, String dataNascimento,
@@ -74,10 +74,10 @@ public class EmployeeModel {
 		this.rg = rg;
 		this.orgaoRG = orgaoRG;
 		this.cpf = cpf;
-		this.contato = contato;
-		this.dadosComplementares = dadosComplementares;
-		this.dadosAcademicos = dadosAcademicos;
-		this.dadosFuncionais = dadosFuncionais;
+		//this.contato = contato;
+		//this.dadosComplementares = dadosComplementares;
+		//this.dadosAcademicos = dadosAcademicos;
+		//this.dadosFuncionais = dadosFuncionais;
 	}
 
 		
@@ -94,6 +94,10 @@ public class EmployeeModel {
 		this.cpf = cpf;
 	}
 
+
+	public EmployeeModel() {
+		super();
+	}
 
 
 	public String getNome() {
@@ -150,7 +154,7 @@ public class EmployeeModel {
 	public void setCPF(String cpf) {
 		this.cpf = cpf;
 	}
-	public EmployeeContactModel getContato() {
+	/**public EmployeeContactModel getContato() {
 		return contato;
 	}
 	public void setContato(EmployeeContactModel contato) {
@@ -173,7 +177,7 @@ public class EmployeeModel {
 	}
 	public void setDadosFuncionais(FunctionalDataModel dadosFuncionais) {
 		this.dadosFuncionais = dadosFuncionais;
-	}
+	}**/
 	
 	
 	

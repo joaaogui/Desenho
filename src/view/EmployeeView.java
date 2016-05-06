@@ -159,8 +159,18 @@ public class EmployeeView {
 		JButton btnSalvar = new JButton("Avan\u00E7ar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				EmployeeModel employee =  new EmployeeModel();
+				EmployeeController employeeControl = new EmployeeController();
+				employee.setNome(nomeField.getText());
+				employee.setMatricula(matriculaField.getText());
+				employee.setTipo(tipoField.getText());
+				employee.setAdmissao(admissaoField.getText());
+				employee.setCPF(cpfField.getText());
+				employee.setDataNascimento(dataNascField.getText());
+				employee.setRG(rgField.getText());
+				employee.setOrgaoRG(orgaoRgField.getText());
 				
+				employeeControl.addEmployee(employee);
 			}
 			
 		});
