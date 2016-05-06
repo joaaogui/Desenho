@@ -1,5 +1,6 @@
 package view;
 
+import model.AcademicDataModel;
 import model.EmployeeModel;
 import controller.EmployeeController;
 import java.awt.EventQueue;
@@ -161,6 +162,8 @@ public class EmployeeView {
 			public void actionPerformed(ActionEvent e) {
 				EmployeeModel employee =  new EmployeeModel();
 				EmployeeController employeeControl = new EmployeeController();
+				ComplementaryDataView complementary = new ComplementaryDataView();
+								
 				employee.setNome(nomeField.getText());
 				employee.setMatricula(matriculaField.getText());
 				employee.setTipo(tipoField.getText());
@@ -171,6 +174,8 @@ public class EmployeeView {
 				employee.setOrgaoRG(orgaoRgField.getText());
 				
 				employeeControl.addEmployee(employee);
+				
+				complementary.setVi 
 			}
 			
 		});
