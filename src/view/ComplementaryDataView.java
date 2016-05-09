@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 
 public class ComplementaryDataView {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField textField_naturalidade;
 	private JTextField textField_nacionalidade;
 	private JTextField textField_raca;
@@ -291,6 +291,13 @@ public class ComplementaryDataView {
 		textField_copi.setColumns(10);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				EmployeeView empV = new EmployeeView();
+				empV.frame.setVisible(true);	
+			}
+		});
 		btnVoltar.setBounds(67, 406, 89, 23);
 		frame.getContentPane().add(btnVoltar);
 		
@@ -321,6 +328,7 @@ public class ComplementaryDataView {
 							employeeController.addEmployee(employee); 
 							JOptionPane.showMessageDialog(null, "Usuário "+EmployeeView.nomeField.getText()+" inserido com sucesso! "); 
 							} 
+					
 					// apaga os dados preenchidos nos campos de texto 
 					EmployeeView.matriculaField.setText(""); 
 					EmployeeView.nomeField.setText("");
