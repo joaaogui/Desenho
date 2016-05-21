@@ -271,7 +271,7 @@ public class EmployeeView {
 		emailField.setColumns(10);
 		
 		JLabel logo = new JLabel();
-		logo.setIcon(new ImageIcon(EmployeeView.class.getResource("/resources/SGP3.png")));
+		logo.setIcon(new ImageIcon(EmployeeView.class.getResource("/resources/SGP2.png")));
 		logo.setBounds(21, 20, 595, 143);
 		frame.getContentPane().add(logo);
 	}
