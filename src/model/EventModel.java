@@ -7,6 +7,13 @@ public class EventModel {
 	private String observação;
 	private String tipoEvento;
 	
+	public EventModel(String dataInicial, String dataFinal, String observação, String tipoEvento){
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
+		this.observação = observação;
+		this.tipoEvento = tipoEvento;
+	}
+	
 	public String getDataInicial() {
 		return dataInicial;
 	}
