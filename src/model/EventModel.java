@@ -6,12 +6,14 @@ public class EventModel {
 	private String dataFinal;
 	private String observação;
 	private String tipoEvento;
+	private int matriculaProfissional;
 	
-	public EventModel(String dataInicial, String dataFinal, String observação, String tipoEvento){
+	public EventModel(String dataInicial, String dataFinal, String observação, String tipoEvento, int matriculaProfissional){
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
 		this.observação = observação;
 		this.tipoEvento = tipoEvento;
+		this.matriculaProfissional = matriculaProfissional;
 	}
 	
 	public String getDataInicial() {
@@ -37,6 +39,14 @@ public class EventModel {
 	}
 	public void setDataFinal(String dataFinal) {
 		this.dataFinal = dataFinal;
+	}
+
+	public int getMatriculaProfissional() {
+		return matriculaProfissional;
+	}
+
+	public void setMatriculaProfissional(int matriculaProfissional) {
+		this.matriculaProfissional = matriculaProfissional;
 	}
 	
 	

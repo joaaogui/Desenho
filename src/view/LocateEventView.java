@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LocateEventView {
 
@@ -62,6 +64,12 @@ public class LocateEventView {
 		localizarFuncionariotextField.setColumns(10);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+			}
+		});
 		btnBuscar.setBounds(529, 253, 89, 23);
 		frame.getContentPane().add(btnBuscar);
 	}

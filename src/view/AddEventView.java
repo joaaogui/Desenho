@@ -88,7 +88,6 @@ public class AddEventView {
 		frame.getContentPane().add(lblDataInicial);
 		
 		dataIncialTextField = new JTextField();
-		dataIncialTextField.setText("Insira a data inicial do evento");
 		dataIncialTextField.setBounds(33, 330, 169, 31);
 		frame.getContentPane().add(dataIncialTextField);
 		dataIncialTextField.setColumns(10);
@@ -99,7 +98,6 @@ public class AddEventView {
 		frame.getContentPane().add(lblDataFinal);
 		
 		dataFinalTextField = new JTextField();
-		dataFinalTextField.setText("Insira a data final do evento");
 		dataFinalTextField.setBounds(225, 330, 169, 31);
 		frame.getContentPane().add(dataFinalTextField);
 		dataFinalTextField.setColumns(10);
@@ -111,7 +109,7 @@ public class AddEventView {
 		
 		JComboBox tipoEventoComboBox = new JComboBox();
 		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
-		tipoEventoComboBox.setBounds(33, 397, 206, 20);
+		tipoEventoComboBox.setBounds(33, 397, 276, 20);
 		frame.getContentPane().add(tipoEventoComboBox);
 		
 		JButton btnGravar = new JButton("Gravar");
