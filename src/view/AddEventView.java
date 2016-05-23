@@ -12,7 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
-public class EventView {
+public class AddEventView {
 
 	private JFrame frame;
 	private JTextField matriculaTextField;
@@ -27,7 +27,7 @@ public class EventView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EventView window = new EventView();
+					AddEventView window = new AddEventView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class EventView {
 	/**
 	 * Create the application.
 	 */
-	public EventView() {
+	public AddEventView() {
 		initialize();
 	}
 
@@ -53,12 +53,11 @@ public class EventView {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(10, 11, 626, 124);
-		lblNewLabel.setIcon(new ImageIcon(EventView.class.getResource("/resources/SGP2.png")));
+		lblNewLabel.setBounds(21, 11, 626, 124);
+		lblNewLabel.setIcon(new ImageIcon(AddEventView.class.getResource("/resources/SGP2.png")));
 		frame.getContentPane().add(lblNewLabel);
 		
 		matriculaTextField = new JTextField();
-		matriculaTextField.setText("Insira a matricula do funcion\u00E1rio.");
 		matriculaTextField.setBounds(33, 251, 206, 31);
 		frame.getContentPane().add(matriculaTextField);
 		matriculaTextField.setColumns(10);
