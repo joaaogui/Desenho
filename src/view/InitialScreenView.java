@@ -67,6 +67,14 @@ public class InitialScreenView {
 		frame.getContentPane().add(localizarFuncionarioButton);
 		
 		JButton lançamentoButton = new JButton("Lan\u00E7amento");
+		lançamentoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				LocateEventView eventView = new LocateEventView();
+				eventView.frame.setVisible(true);	
+			}
+		});
 		lançamentoButton.setBounds(276, 188, 109, 23);
 		frame.getContentPane().add(lançamentoButton);
 		
@@ -90,7 +98,7 @@ public class InitialScreenView {
 		
 		JTextPane txtpnListagensAbaDestinada = new JTextPane();
 		txtpnListagensAbaDestinada.setText("Listagens: Aba destinada a obter listagens das mais variadas");
-		txtpnListagensAbaDestinada.setBounds(376, 320, 221, 34);
+		txtpnListagensAbaDestinada.setBounds(376, 339, 221, 34);
 		frame.getContentPane().add(txtpnListagensAbaDestinada);
 		
 		JTextPane txtpnAbaDestinadaA = new JTextPane();
