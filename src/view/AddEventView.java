@@ -7,18 +7,26 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+
+import model.EventModel;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class AddEventView {
 
-	private JFrame frame;
-	private JTextField matriculaTextField;
-	private JTextField nomeTextField;
-	private JTextField dataIncialTextField;
-	private JTextField dataFinalTextField;
+	private static JTextArea observaçõesTextArea;
+	private static JFrame frame;
+	private static JTextField matriculaTextField;
+	private static JTextField nomeTextField;
+	private static JTextField dataInicialTextField;
+	private static JTextField dataFinalTextField;
+	private static JComboBox tipoEventoComboBox;
 
 	/**
 	 * Launch the application.
@@ -53,11 +61,13 @@ public class AddEventView {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(21, 11, 626, 124);
+		lblNewLabel.setBounds(56, 22, 533, 124);
 		lblNewLabel.setIcon(new ImageIcon(AddEventView.class.getResource("/resources/SGP2.png")));
 		frame.getContentPane().add(lblNewLabel);
 		
 		matriculaTextField = new JTextField();
+		matriculaTextField.setText("0000.000-0");
+		matriculaTextField.setEditable(false);
 		matriculaTextField.setBounds(33, 251, 206, 31);
 		frame.getContentPane().add(matriculaTextField);
 		matriculaTextField.setColumns(10);
@@ -73,6 +83,8 @@ public class AddEventView {
 		frame.getContentPane().add(lblMatricula);
 		
 		nomeTextField = new JTextField();
+		nomeTextField.setText("Marco José Da Silva");
+		nomeTextField.setEditable(false);
 		nomeTextField.setBounds(263, 251, 353, 31);
 		frame.getContentPane().add(nomeTextField);
 		nomeTextField.setColumns(10);
@@ -87,10 +99,10 @@ public class AddEventView {
 		lblDataInicial.setBounds(33, 305, 80, 14);
 		frame.getContentPane().add(lblDataInicial);
 		
-		dataIncialTextField = new JTextField();
-		dataIncialTextField.setBounds(33, 330, 169, 31);
-		frame.getContentPane().add(dataIncialTextField);
-		dataIncialTextField.setColumns(10);
+		dataInicialTextField = new JTextField();
+		dataInicialTextField.setBounds(33, 330, 169, 31);
+		frame.getContentPane().add(dataInicialTextField);
+		dataInicialTextField.setColumns(10);
 		
 		JLabel lblDataFinal = new JLabel("Data Final");
 		lblDataFinal.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -113,7 +125,30 @@ public class AddEventView {
 		frame.getContentPane().add(tipoEventoComboBox);
 		
 		JButton btnGravar = new JButton("Gravar");
+		btnGravar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int matricula = Integer.parseInt(AddEventView.matriculaTextField.getText());
+				String tipoEvento = AddEventView.tipoEventoComboBox.getSelectedItem().toString();
+				EventModel event = new EventModel(AddEventView.dataInicialTextField.getText(),  AddEventView.dataFinalTextField.getText(),  AddEventView.observaçõesTextArea.getText(),  tipoEvento , matricula);
+				
+				event.setDataInicial(AddEventView.dataInicialTextField.getText());
+				event.setDataFinal(AddEventView.dataFinalTextField.getText());
+				event.setObservação(AddEventView.observaçõesTextArea.getText());
+				event.setMatriculaProfissional(matricula);
+				event.setTipoEvento(tipoEvento);
+			}
+		});
 		btnGravar.setBounds(527, 419, 89, 23);
 		frame.getContentPane().add(btnGravar);
+		
+		JLabel lblObservaes = new JLabel("Observa\u00E7\u00F5es");
+		lblObservaes.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblObservaes.setBounds(416, 305, 73, 14);
+		frame.getContentPane().add(lblObservaes);
+		
+		JTextArea observaçõesTextArea = new JTextArea();
+		observaçõesTextArea.setBounds(416, 333, 200, 56);
+		frame.getContentPane().add(observaçõesTextArea);
 	}
 }
