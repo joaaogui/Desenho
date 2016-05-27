@@ -14,9 +14,10 @@ import model.FunctionalDataModel;
 public class EmployeeController {
 
 	 	
-	public EmployeeModel newEmployee(String nome, String matricula, String tipo, String admissao, String dataNascimento,
-			 String sexo, String rg, String orgaoRG, String cpf, EmployeeContactModel contato, ComplementaryDataModel dadosComplementares,
-	 		 FunctionalDataModel dadosFuncionais, AcademicDataModel dadosAcademicos){
+	public EmployeeModel newEmployee(String nome, String matricula, String tipo, String admissao, 
+									 String dataNascimento, String sexo, String rg, String orgaoRG, 
+									 String cpf, EmployeeContactModel contato, ComplementaryDataModel dadosComplementares,
+									 FunctionalDataModel dadosFuncionais, AcademicDataModel dadosAcademicos){
 		EmployeeModel employee;
 			employee = new EmployeeModel(nome, matricula, tipo, admissao, dataNascimento, sexo, rg, orgaoRG, cpf, contato, dadosComplementares, dadosAcademicos, dadosFuncionais);
 	
