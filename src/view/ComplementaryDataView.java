@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 
 import controller.EmployeeController;
+import model.AcademicDataModel;
 import model.ComplementaryDataModel;
 import model.EmployeeContactModel;
 import model.EmployeeModel;
@@ -39,7 +40,7 @@ public class ComplementaryDataView {
 	private JTextField cursoField;
 	private JTextField licenciaturaField;
 	private JTextField instituicaoField;
-	private JTextField posGraducaoField;
+	private JTextField posGraduacaoField;
 	private JTextField cargoField;
 	private JTextField disciplinaCursoField;
 	private JTextField funcaoField;
@@ -228,10 +229,10 @@ public class ComplementaryDataView {
 		lblPsgraduao.setBounds(10, 266, 86, 14);
 		frame.getContentPane().add(lblPsgraduao);
 		
-		posGraducaoField = new JTextField();
-		posGraducaoField.setBounds(94, 263, 521, 20);
-		frame.getContentPane().add(posGraducaoField);
-		posGraducaoField.setColumns(10);
+		posGraduacaoField = new JTextField();
+		posGraduacaoField.setBounds(94, 263, 521, 20);
+		frame.getContentPane().add(posGraduacaoField);
+		posGraduacaoField.setColumns(10);
 		
 		JLabel lblDadosFuncionais = new JLabel("Dados Funcionais:");
 		lblDadosFuncionais.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -327,6 +328,9 @@ public class ComplementaryDataView {
 						
 						//Dados Complementares
 						addComplementaryData(employee);
+						
+						//Dados Academicos
+						addAcademicData(employee);
 					
 					// fazendo a validação dos dados 
 					if ((EmployeeView.matriculaField.getText().isEmpty()) || (EmployeeView.nomeField.getText().isEmpty()) || 
@@ -405,6 +409,20 @@ public class ComplementaryDataView {
 		employeeComplementary.setNomeMae(nomeMaeField.getText());
 		
 		employee.setDadosComplementares(employeeComplementary);
+		
+	}
+	
+	private void addAcademicData(EmployeeModel employee){
+		AcademicDataModel employeeAcademic = new AcademicDataModel(escolaridadeField.getText(), cursoField.getText(), 
+				   licenciaturaField.getText(), instituicaoField.getText(), 
+				   posGraduacaoField.getText());
+		employeeAcademic.setEscolaridade(escolaridadeField.getText());
+		employeeAcademic.setCurso(cursoField.getText());
+		employeeAcademic.setLicenciatura(licenciaturaField.getText());
+		employeeAcademic.setInstituicao(instituicaoField.getText());
+		employeeAcademic.setPosGraduacao(emissorPisField.getText());
+		
+		employee.setDadosAcademicos(employeeAcademic);
 		
 	}
 }
