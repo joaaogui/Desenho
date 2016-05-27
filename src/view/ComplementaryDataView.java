@@ -323,7 +323,7 @@ public class ComplementaryDataView {
 						employee.setCPF(EmployeeView.cpfField.getText());
 						
 						//Dados Complemententares
-						addComplementaryData();
+						addComplementaryData(employee);
 					
 					// fazendo a validação dos dados 
 					if ((EmployeeView.matriculaField.getText().isEmpty()) || (EmployeeView.nomeField.getText().isEmpty()) || 
@@ -364,18 +364,21 @@ public class ComplementaryDataView {
 		frame.getContentPane().add(btnSair);
 	}
 	
-	private void addComplementaryData(){
-		EmployeeContactModel employee = new EmployeeContactModel(EmployeeView.enderecoField.getText(), EmployeeView.bairroField.getText(), 
+	private void addComplementaryData(EmployeeModel employee){
+		EmployeeContactModel employee1 = new EmployeeContactModel(EmployeeView.enderecoField.getText(), EmployeeView.bairroField.getText(), 
 				   EmployeeView.cidadeField.getText(), EmployeeView.ufField.getText(), 
 				   EmployeeView.cepField.getText(), EmployeeView.telfixoField.getText(), 
 				   EmployeeView.celularField.getText(), EmployeeView.emailField.getText());
-		employee.setEndereco(EmployeeView.enderecoField.getText());
-		employee.setBairro(EmployeeView.bairroField.getText());
-		employee.setCidade(EmployeeView.cidadeField.getText());
-		employee.setUf(EmployeeView.ufField.getText());
-		employee.setCep(EmployeeView.cepField.getText());
-		employee.setTelFixo(EmployeeView.telfixoField.getText());
-		employee.setTelCelular(EmployeeView.celularField.getText());
-		employee.setEmail(EmployeeView.emailField.getText());
+		employee1.setEndereco(EmployeeView.enderecoField.getText());
+		employee1.setBairro(EmployeeView.bairroField.getText());
+		employee1.setCidade(EmployeeView.cidadeField.getText());
+		employee1.setUf(EmployeeView.ufField.getText());
+		employee1.setCep(EmployeeView.cepField.getText());
+		employee1.setTelFixo(EmployeeView.telfixoField.getText());
+		employee1.setTelCelular(EmployeeView.celularField.getText());
+		employee1.setEmail(EmployeeView.emailField.getText());
+		
+		employee.setContato(employee1);
+		
 	}
 }
