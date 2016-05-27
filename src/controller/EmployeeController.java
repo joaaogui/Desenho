@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.hibernate.Query;
+
 import dao.EmployeeDao;
 import model.AcademicDataModel;
 import model.ComplementaryDataModel;
@@ -27,6 +29,18 @@ public class EmployeeController {
 	public void addEmployee(EmployeeModel employee) {
 		EmployeeDao dao = new EmployeeDao();
 		dao.addEmployee(employee);
+	}
+	
+	public EmployeeModel searchEmployee(String matricula){
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Employee");
+		EntityManager manager = factory.createEntityManager();
+	
+		String SQL = "Select * from Employee where";	
+		Query query = (Query) manager.createNativeQuery(SQL);
+		query.setParameter("matricula", matricula);
+		EmployeeModel employee = (EmployeeModel) ((javax.persistence.Query) query).getSingleResult();
+		
+		return employee;
 	}
 	
 }

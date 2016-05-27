@@ -4,16 +4,21 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import controller.EmployeeController;
+import model.EmployeeModel;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class LocateEventView {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField localizarFuncionariotextField;
 
 	/**
@@ -65,9 +70,22 @@ public class LocateEventView {
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
+			private EmployeeController employeeController;
+
 			public void actionPerformed(ActionEvent arg0) {
 				
+				employeeController = null;
 				
+				EmployeeModel employee;
+				
+				String matricula = localizarFuncionariotextField.getText();
+				employee = employeeController.searchEmployee(matricula);
+				
+				if(employee != null)
+					JOptionPane.showMessageDialog(null, "Nome do usuário: "+employee.getNome());
+				else 
+					JOptionPane.showMessageDialog(null, "Nulo");
+
 			}
 		});
 		btnBuscar.setBounds(529, 253, 89, 23);
