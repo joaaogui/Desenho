@@ -24,28 +24,28 @@ import java.awt.event.ActionEvent;
 public class ComplementaryDataView {
 
 	JFrame frame;
-	private JTextField textField_naturalidade;
-	private JTextField textField_nacionalidade;
-	private JTextField textField_raca;
-	private JTextField textField_pis;
-	private JTextField textField_emissorPis;
-	private JTextField textField_tituloEleitoral;
-	private JTextField textField_zonaEleitoral;
-	private JTextField textField_nomeConjuge;
-	private JTextField textField_estadoCivil;
-	private JTextField textField_nomePai;
-	private JTextField textField_nomeMae;
-	private JTextField textField_escolaridade;
-	private JTextField textField_curso;
-	private JTextField textField_licenciatura;
-	private JTextField textField_instituicao;
-	private JTextField textFieldposGraducao;
-	private JTextField textField_cargo;
-	private JTextField textField_disciplinaCurso;
-	private JTextField textField_funcao;
-	private JTextField textField_entrada;
-	private JTextField textField_saida;
-	private JTextField textField_copi;
+	private JTextField naturalidadeField;
+	private JTextField nacionalidadeField;
+	private JTextField racaField;
+	private JTextField pisField;
+	private JTextField emissorPisField;
+	private JTextField tituloEleitoralField;
+	private JTextField zonaEleitoralField;
+	private JTextField nomeConjugeField;
+	private JTextField estadoCivilField;
+	private JTextField nomePaiField;
+	private JTextField nomeMaeField;
+	private JTextField escolaridadeField;
+	private JTextField cursoField;
+	private JTextField licenciaturaField;
+	private JTextField instituicaoField;
+	private JTextField posGraducaoField;
+	private JTextField cargoField;
+	private JTextField disciplinaCursoField;
+	private JTextField funcaoField;
+	private JTextField entradaField;
+	private JTextField saidaField;
+	private JTextField copiField;
 
 	/**
 	 * Launch the application.
@@ -88,96 +88,96 @@ public class ComplementaryDataView {
 		lblNaturalidade.setBounds(10, 36, 75, 14);
 		frame.getContentPane().add(lblNaturalidade);
 		
-		textField_naturalidade = new JTextField();
-		textField_naturalidade.setBounds(100, 36, 144, 20);
-		frame.getContentPane().add(textField_naturalidade);
-		textField_naturalidade.setColumns(10);
+		naturalidadeField = new JTextField();
+		naturalidadeField.setBounds(100, 36, 144, 20);
+		frame.getContentPane().add(naturalidadeField);
+		naturalidadeField.setColumns(10);
 		
 		JLabel lblNacionalidade = new JLabel("Nacionalidade");
 		lblNacionalidade.setBounds(266, 36, 75, 14);
 		frame.getContentPane().add(lblNacionalidade);
 		
-		textField_nacionalidade = new JTextField();
-		textField_nacionalidade.setColumns(10);
-		textField_nacionalidade.setBounds(363, 36, 137, 20);
-		frame.getContentPane().add(textField_nacionalidade);
+		nacionalidadeField = new JTextField();
+		nacionalidadeField.setColumns(10);
+		nacionalidadeField.setBounds(363, 36, 137, 20);
+		frame.getContentPane().add(nacionalidadeField);
 		
 		JLabel lblRaa = new JLabel("Ra\u00E7a:");
 		lblRaa.setBounds(10, 71, 75, 14);
 		frame.getContentPane().add(lblRaa);
 		
-		textField_raca = new JTextField();
-		textField_raca.setColumns(10);
-		textField_raca.setBounds(59, 68, 86, 20);
-		frame.getContentPane().add(textField_raca);
+		racaField = new JTextField();
+		racaField.setColumns(10);
+		racaField.setBounds(59, 68, 86, 20);
+		frame.getContentPane().add(racaField);
 		
 		JLabel lblPispasep = new JLabel("PIS/PASEP:");
 		lblPispasep.setBounds(166, 71, 75, 14);
 		frame.getContentPane().add(lblPispasep);
 		
-		textField_pis = new JTextField();
-		textField_pis.setColumns(10);
-		textField_pis.setBounds(245, 67, 102, 20);
-		frame.getContentPane().add(textField_pis);
+		pisField = new JTextField();
+		pisField.setColumns(10);
+		pisField.setBounds(245, 67, 102, 20);
+		frame.getContentPane().add(pisField);
 		
 		JLabel lblEmissor = new JLabel("Emissor:");
 		lblEmissor.setBounds(357, 71, 75, 14);
 		frame.getContentPane().add(lblEmissor);
 		
-		textField_emissorPis = new JTextField();
-		textField_emissorPis.setColumns(10);
-		textField_emissorPis.setBounds(403, 68, 124, 20);
-		frame.getContentPane().add(textField_emissorPis);
+		emissorPisField = new JTextField();
+		emissorPisField.setColumns(10);
+		emissorPisField.setBounds(403, 68, 124, 20);
+		frame.getContentPane().add(emissorPisField);
 		
 		JLabel lblTtuloEleitoral = new JLabel("T\u00EDtulo Eleitoral:");
 		lblTtuloEleitoral.setBounds(10, 100, 75, 14);
 		frame.getContentPane().add(lblTtuloEleitoral);
 		
-		textField_tituloEleitoral = new JTextField();
-		textField_tituloEleitoral.setColumns(10);
-		textField_tituloEleitoral.setBounds(96, 97, 124, 20);
-		frame.getContentPane().add(textField_tituloEleitoral);
+		tituloEleitoralField = new JTextField();
+		tituloEleitoralField.setColumns(10);
+		tituloEleitoralField.setBounds(96, 97, 124, 20);
+		frame.getContentPane().add(tituloEleitoralField);
 		
 		JLabel lblZonaEleitoral = new JLabel("Zona Eleitoral:");
 		lblZonaEleitoral.setBounds(244, 102, 75, 14);
 		frame.getContentPane().add(lblZonaEleitoral);
 		
-		textField_zonaEleitoral = new JTextField();
-		textField_zonaEleitoral.setColumns(10);
-		textField_zonaEleitoral.setBounds(329, 97, 109, 20);
-		frame.getContentPane().add(textField_zonaEleitoral);
+		zonaEleitoralField = new JTextField();
+		zonaEleitoralField.setColumns(10);
+		zonaEleitoralField.setBounds(329, 97, 109, 20);
+		frame.getContentPane().add(zonaEleitoralField);
 		
 		JLabel lblNomeCnjuge = new JLabel("Nome C\u00F4njuge:");
 		lblNomeCnjuge.setBounds(244, 131, 75, 14);
 		frame.getContentPane().add(lblNomeCnjuge);
 		
-		textField_nomeConjuge = new JTextField();
-		textField_nomeConjuge.setColumns(10);
-		textField_nomeConjuge.setBounds(339, 128, 276, 20);
-		frame.getContentPane().add(textField_nomeConjuge);
+		nomeConjugeField = new JTextField();
+		nomeConjugeField.setColumns(10);
+		nomeConjugeField.setBounds(339, 128, 276, 20);
+		frame.getContentPane().add(nomeConjugeField);
 		
-		textField_estadoCivil = new JTextField();
-		textField_estadoCivil.setColumns(10);
-		textField_estadoCivil.setBounds(90, 128, 130, 20);
-		frame.getContentPane().add(textField_estadoCivil);
+		estadoCivilField = new JTextField();
+		estadoCivilField.setColumns(10);
+		estadoCivilField.setBounds(90, 128, 130, 20);
+		frame.getContentPane().add(estadoCivilField);
 		
 		JLabel lblEstadoCivil = new JLabel("Estado Civil:");
 		lblEstadoCivil.setBounds(10, 131, 75, 14);
 		frame.getContentPane().add(lblEstadoCivil);
 		
-		textField_nomePai = new JTextField();
-		textField_nomePai.setColumns(10);
-		textField_nomePai.setBounds(78, 156, 180, 20);
-		frame.getContentPane().add(textField_nomePai);
+		nomePaiField = new JTextField();
+		nomePaiField.setColumns(10);
+		nomePaiField.setBounds(78, 156, 180, 20);
+		frame.getContentPane().add(nomePaiField);
 		
 		JLabel lblNomePai = new JLabel("Nome Pai:");
 		lblNomePai.setBounds(10, 159, 75, 14);
 		frame.getContentPane().add(lblNomePai);
 		
-		textField_nomeMae = new JTextField();
-		textField_nomeMae.setColumns(10);
-		textField_nomeMae.setBounds(349, 156, 266, 20);
-		frame.getContentPane().add(textField_nomeMae);
+		nomeMaeField = new JTextField();
+		nomeMaeField.setColumns(10);
+		nomeMaeField.setBounds(349, 156, 266, 20);
+		frame.getContentPane().add(nomeMaeField);
 		
 		JLabel lblNomeMe = new JLabel("Nome M\u00E3e:");
 		lblNomeMe.setBounds(266, 156, 75, 14);
@@ -192,33 +192,33 @@ public class ComplementaryDataView {
 		lblEscolaridade.setBounds(10, 212, 75, 14);
 		frame.getContentPane().add(lblEscolaridade);
 		
-		textField_escolaridade = new JTextField();
-		textField_escolaridade.setBounds(96, 209, 162, 20);
-		frame.getContentPane().add(textField_escolaridade);
-		textField_escolaridade.setColumns(10);
+		escolaridadeField = new JTextField();
+		escolaridadeField.setBounds(96, 209, 162, 20);
+		frame.getContentPane().add(escolaridadeField);
+		escolaridadeField.setColumns(10);
 		
 		JLabel lblCurso = new JLabel("Curso:");
 		lblCurso.setBounds(268, 212, 46, 14);
 		frame.getContentPane().add(lblCurso);
 		
-		textField_curso = new JTextField();
-		textField_curso.setBounds(303, 209, 312, 20);
-		frame.getContentPane().add(textField_curso);
-		textField_curso.setColumns(10);
+		cursoField = new JTextField();
+		cursoField.setBounds(303, 209, 312, 20);
+		frame.getContentPane().add(cursoField);
+		cursoField.setColumns(10);
 		
 		JLabel lblLicenciatura = new JLabel("Licenciatura:");
 		lblLicenciatura.setBounds(10, 241, 75, 14);
 		frame.getContentPane().add(lblLicenciatura);
 		
-		textField_licenciatura = new JTextField();
-		textField_licenciatura.setBounds(74, 237, 184, 20);
-		frame.getContentPane().add(textField_licenciatura);
-		textField_licenciatura.setColumns(10);
+		licenciaturaField = new JTextField();
+		licenciaturaField.setBounds(74, 237, 184, 20);
+		frame.getContentPane().add(licenciaturaField);
+		licenciaturaField.setColumns(10);
 		
-		textField_instituicao = new JTextField();
-		textField_instituicao.setBounds(324, 237, 291, 20);
-		frame.getContentPane().add(textField_instituicao);
-		textField_instituicao.setColumns(10);
+		instituicaoField = new JTextField();
+		instituicaoField.setBounds(324, 237, 291, 20);
+		frame.getContentPane().add(instituicaoField);
+		instituicaoField.setColumns(10);
 		
 		JLabel lblInstituio = new JLabel("Institui\u00E7\u00E3o:");
 		lblInstituio.setBounds(266, 237, 63, 14);
@@ -228,10 +228,10 @@ public class ComplementaryDataView {
 		lblPsgraduao.setBounds(10, 266, 86, 14);
 		frame.getContentPane().add(lblPsgraduao);
 		
-		textFieldposGraducao = new JTextField();
-		textFieldposGraducao.setBounds(94, 263, 521, 20);
-		frame.getContentPane().add(textFieldposGraducao);
-		textFieldposGraducao.setColumns(10);
+		posGraducaoField = new JTextField();
+		posGraducaoField.setBounds(94, 263, 521, 20);
+		frame.getContentPane().add(posGraducaoField);
+		posGraducaoField.setColumns(10);
 		
 		JLabel lblDadosFuncionais = new JLabel("Dados Funcionais:");
 		lblDadosFuncionais.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -242,55 +242,55 @@ public class ComplementaryDataView {
 		lblCargo.setBounds(10, 311, 46, 14);
 		frame.getContentPane().add(lblCargo);
 		
-		textField_cargo = new JTextField();
-		textField_cargo.setBounds(48, 308, 210, 20);
-		frame.getContentPane().add(textField_cargo);
-		textField_cargo.setColumns(10);
+		cargoField = new JTextField();
+		cargoField.setBounds(48, 308, 210, 20);
+		frame.getContentPane().add(cargoField);
+		cargoField.setColumns(10);
 		
 		JLabel lblDisciplinaDeCurso = new JLabel("Disciplina de Curso:");
 		lblDisciplinaDeCurso.setBounds(266, 311, 110, 14);
 		frame.getContentPane().add(lblDisciplinaDeCurso);
 		
-		textField_disciplinaCurso = new JTextField();
-		textField_disciplinaCurso.setBounds(363, 308, 252, 20);
-		frame.getContentPane().add(textField_disciplinaCurso);
-		textField_disciplinaCurso.setColumns(10);
+		disciplinaCursoField = new JTextField();
+		disciplinaCursoField.setBounds(363, 308, 252, 20);
+		frame.getContentPane().add(disciplinaCursoField);
+		disciplinaCursoField.setColumns(10);
 		
 		JLabel lblFuno = new JLabel("Fun\u00E7\u00E3o:");
 		lblFuno.setBounds(10, 336, 46, 14);
 		frame.getContentPane().add(lblFuno);
 		
-		textField_funcao = new JTextField();
-		textField_funcao.setBounds(58, 333, 200, 20);
-		frame.getContentPane().add(textField_funcao);
-		textField_funcao.setColumns(10);
+		funcaoField = new JTextField();
+		funcaoField.setBounds(58, 333, 200, 20);
+		frame.getContentPane().add(funcaoField);
+		funcaoField.setColumns(10);
 		
 		JLabel lblEntrada = new JLabel("Entrada:");
 		lblEntrada.setBounds(266, 336, 46, 14);
 		frame.getContentPane().add(lblEntrada);
 		
-		textField_entrada = new JTextField();
-		textField_entrada.setBounds(314, 333, 118, 20);
-		frame.getContentPane().add(textField_entrada);
-		textField_entrada.setColumns(10);
+		entradaField = new JTextField();
+		entradaField.setBounds(314, 333, 118, 20);
+		frame.getContentPane().add(entradaField);
+		entradaField.setColumns(10);
 		
 		JLabel lblSada = new JLabel("Sa\u00EDda:");
 		lblSada.setBounds(442, 336, 46, 14);
 		frame.getContentPane().add(lblSada);
 		
-		textField_saida = new JTextField();
-		textField_saida.setBounds(478, 333, 137, 20);
-		frame.getContentPane().add(textField_saida);
-		textField_saida.setColumns(10);
+		saidaField = new JTextField();
+		saidaField.setBounds(478, 333, 137, 20);
+		frame.getContentPane().add(saidaField);
+		saidaField.setColumns(10);
 		
 		JLabel lblCopiExterna = new JLabel("COPI Externa:");
 		lblCopiExterna.setBounds(10, 363, 75, 14);
 		frame.getContentPane().add(lblCopiExterna);
 		
-		textField_copi = new JTextField();
-		textField_copi.setBounds(83, 360, 236, 20);
-		frame.getContentPane().add(textField_copi);
-		textField_copi.setColumns(10);
+		copiField = new JTextField();
+		copiField.setBounds(83, 360, 236, 20);
+		frame.getContentPane().add(copiField);
+		copiField.setColumns(10);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -322,7 +322,10 @@ public class ComplementaryDataView {
 						employee.setOrgaoRG(EmployeeView.orgaoRgField.getText());
 						employee.setCPF(EmployeeView.cpfField.getText());
 						
-						//Dados Complemententares
+						//Dados de contato
+						addContactData(employee);
+						
+						//Dados Complementares
 						addComplementaryData(employee);
 					
 					// fazendo a validação dos dados 
@@ -364,21 +367,44 @@ public class ComplementaryDataView {
 		frame.getContentPane().add(btnSair);
 	}
 	
-	private void addComplementaryData(EmployeeModel employee){
-		EmployeeContactModel employee1 = new EmployeeContactModel(EmployeeView.enderecoField.getText(), EmployeeView.bairroField.getText(), 
+	private void addContactData(EmployeeModel employee){
+		EmployeeContactModel employeeContact = new EmployeeContactModel(EmployeeView.enderecoField.getText(), EmployeeView.bairroField.getText(), 
 				   EmployeeView.cidadeField.getText(), EmployeeView.ufField.getText(), 
 				   EmployeeView.cepField.getText(), EmployeeView.telfixoField.getText(), 
 				   EmployeeView.celularField.getText(), EmployeeView.emailField.getText());
-		employee1.setEndereco(EmployeeView.enderecoField.getText());
-		employee1.setBairro(EmployeeView.bairroField.getText());
-		employee1.setCidade(EmployeeView.cidadeField.getText());
-		employee1.setUf(EmployeeView.ufField.getText());
-		employee1.setCep(EmployeeView.cepField.getText());
-		employee1.setTelFixo(EmployeeView.telfixoField.getText());
-		employee1.setTelCelular(EmployeeView.celularField.getText());
-		employee1.setEmail(EmployeeView.emailField.getText());
+		employeeContact.setEndereco(EmployeeView.enderecoField.getText());
+		employeeContact.setBairro(EmployeeView.bairroField.getText());
+		employeeContact.setCidade(EmployeeView.cidadeField.getText());
+		employeeContact.setUf(EmployeeView.ufField.getText());
+		employeeContact.setCep(EmployeeView.cepField.getText());
+		employeeContact.setTelFixo(EmployeeView.telfixoField.getText());
+		employeeContact.setTelCelular(EmployeeView.celularField.getText());
+		employeeContact.setEmail(EmployeeView.emailField.getText());
 		
-		employee.setContato(employee1);
+		employee.setContato(employeeContact);
+		
+	}
+	
+	private void addComplementaryData(EmployeeModel employee){
+		ComplementaryDataModel employeeComplementary = new ComplementaryDataModel(naturalidadeField.getText(), nacionalidadeField.getText(), 
+				   racaField.getText(), pisField.getText(), 
+				   emissorPisField.getText(), tituloEleitoralField.getText(), 
+				   zonaEleitoralField.getText(), nomeConjugeField.getText(), 
+				   estadoCivilField.getText(), nomePaiField.getText(),
+				   nomeMaeField.getText());
+		employeeComplementary.setNaturalidade(naturalidadeField.getText());
+		employeeComplementary.setNacionalidade(nacionalidadeField.getText());
+		employeeComplementary.setRaca(racaField.getText());
+		employeeComplementary.setPisPasep(pisField.getText());
+		employeeComplementary.setEmissaoPis(emissorPisField.getText());
+		employeeComplementary.setTituloEleitoral(tituloEleitoralField.getText());
+		employeeComplementary.setZonaEleitoral(zonaEleitoralField.getText());
+		employeeComplementary.setNomeConjuge(nomeConjugeField.getText());
+		employeeComplementary.setEstadoCivil(estadoCivilField.getText());
+		employeeComplementary.setNomePai(nomePaiField.getText());
+		employeeComplementary.setNomeMae(nomeMaeField.getText());
+		
+		employee.setDadosComplementares(employeeComplementary);
 		
 	}
 }
