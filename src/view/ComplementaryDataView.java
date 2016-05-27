@@ -11,6 +11,8 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 
 import controller.EmployeeController;
+import model.ComplementaryDataModel;
+import model.EmployeeContactModel;
 import model.EmployeeModel;
 import view.EmployeeView;
 
@@ -304,8 +306,12 @@ public class ComplementaryDataView {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) { 
-					EmployeeModel employee = new EmployeeModel(EmployeeView.nomeField.getText(), EmployeeView.matriculaField.getText(), EmployeeView.tipoField.getText(), EmployeeView.admissaoField.getText(), 
-							EmployeeView.dataNascField.getText(), EmployeeView.sexoField.getText(), EmployeeView.rgField.getText(), EmployeeView.orgaoRgField.getText(), EmployeeView.cpfField.getText());
+					EmployeeModel employee = new EmployeeModel(EmployeeView.nomeField.getText(), EmployeeView.matriculaField.getText(), 
+															   EmployeeView.tipoField.getText(), EmployeeView.admissaoField.getText(), 
+															   EmployeeView.dataNascField.getText(), EmployeeView.sexoField.getText(), 
+															   EmployeeView.rgField.getText(), EmployeeView.orgaoRgField.getText(), 
+															   EmployeeView.cpfField.getText());
+						//Dados principais
 						employee.setMatricula(EmployeeView.matriculaField.getText());
 						employee.setNome(EmployeeView.nomeField.getText()); 
 						employee.setTipo(EmployeeView.tipoField.getText()); 
@@ -314,7 +320,10 @@ public class ComplementaryDataView {
 						employee.setSexo(EmployeeView.sexoField.getText());
 						employee.setRG(EmployeeView.rgField.getText());
 						employee.setOrgaoRG(EmployeeView.orgaoRgField.getText());
-						employee.setCPF(EmployeeView.cpfField.getText());  
+						employee.setCPF(EmployeeView.cpfField.getText());
+						
+						//Dados Complemententares
+						addComplementaryData();
 					
 					// fazendo a validação dos dados 
 					if ((EmployeeView.matriculaField.getText().isEmpty()) || (EmployeeView.nomeField.getText().isEmpty()) || 
@@ -353,5 +362,20 @@ public class ComplementaryDataView {
 		});
 		btnSair.setBounds(478, 406, 89, 23);
 		frame.getContentPane().add(btnSair);
+	}
+	
+	private void addComplementaryData(){
+		EmployeeContactModel employee = new EmployeeContactModel(EmployeeView.enderecoField.getText(), EmployeeView.bairroField.getText(), 
+				   EmployeeView.cidadeField.getText(), EmployeeView.ufField.getText(), 
+				   EmployeeView.cepField.getText(), EmployeeView.telfixoField.getText(), 
+				   EmployeeView.celularField.getText(), EmployeeView.emailField.getText());
+		employee.setEndereco(EmployeeView.enderecoField.getText());
+		employee.setBairro(EmployeeView.bairroField.getText());
+		employee.setCidade(EmployeeView.cidadeField.getText());
+		employee.setUf(EmployeeView.ufField.getText());
+		employee.setCep(EmployeeView.cepField.getText());
+		employee.setTelFixo(EmployeeView.telfixoField.getText());
+		employee.setTelCelular(EmployeeView.celularField.getText());
+		employee.setEmail(EmployeeView.emailField.getText());
 	}
 }
