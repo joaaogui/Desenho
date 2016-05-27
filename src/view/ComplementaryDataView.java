@@ -15,6 +15,7 @@ import model.AcademicDataModel;
 import model.ComplementaryDataModel;
 import model.EmployeeContactModel;
 import model.EmployeeModel;
+import model.FunctionalDataModel;
 import view.EmployeeView;
 
 import java.awt.Font;
@@ -331,6 +332,9 @@ public class ComplementaryDataView {
 						
 						//Dados Academicos
 						addAcademicData(employee);
+						
+						//Dados Funcionais
+						addFunctionalData(employee);
 					
 					// fazendo a validação dos dados 
 					if ((EmployeeView.matriculaField.getText().isEmpty()) || (EmployeeView.nomeField.getText().isEmpty()) || 
@@ -423,6 +427,21 @@ public class ComplementaryDataView {
 		employeeAcademic.setPosGraduacao(emissorPisField.getText());
 		
 		employee.setDadosAcademicos(employeeAcademic);
+		
+	}
+	
+	private void addFunctionalData(EmployeeModel employee){
+		FunctionalDataModel employeeFunctional = new FunctionalDataModel(cargoField.getText(), disciplinaCursoField.getText(), 
+				   funcaoField.getText(), entradaField.getText(), 
+				   saidaField.getText(), copiField.getText());
+		employeeFunctional.setCargo(cargoField.getText());
+		employeeFunctional.setDisciplinaDeConcurso(disciplinaCursoField.getText());
+		employeeFunctional.setFuncao(funcaoField.getText());
+		employeeFunctional.setEntrada(entradaField.getText());
+		employeeFunctional.setSaida(saidaField.getText());
+		employeeFunctional.setCOPIExterna(copiField.getText());
+		
+		employee.setDadosFuncionais(employeeFunctional);
 		
 	}
 }
