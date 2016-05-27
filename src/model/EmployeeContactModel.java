@@ -26,6 +26,9 @@ public class EmployeeContactModel {
 	@Column
 	public String email;
 	
+	public EmployeeContactModel(){
+		
+	}
 	
 	public EmployeeContactModel(String endereco, String bairro, String cidade, String uf, String cep, String telFixo,
 			String telCelular, String email) {

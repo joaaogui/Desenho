@@ -24,6 +24,10 @@ public class FunctionalDataModel {
 	@Column
 	public String copiExterna;
 	
+	public FunctionalDataModel() {
+		
+	}
+	
 	
 	
 	public FunctionalDataModel(String cargo, String disciplinaDeConcurso, String funcao, String entrada, String saida,

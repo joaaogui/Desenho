@@ -33,12 +33,11 @@ public class EmployeeController {
 	
 	public EmployeeModel searchEmployee(String matricula){
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Employee");
-		EntityManager manager = factory.createEntityManager();
-	
-		String SQL = "Select * from Employee where";	
-		Query query = (Query) manager.createNativeQuery(SQL);
-		query.setParameter("matricula", matricula);
-		EmployeeModel employee = (EmployeeModel) ((javax.persistence.Query) query).getSingleResult();
+		EntityManager entityManager = factory.createEntityManager();
+		
+		EmployeeModel employee = new EmployeeModel();
+		
+		employee = entityManager.find(EmployeeModel.class, 1);
 		
 		return employee;
 	}

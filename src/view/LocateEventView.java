@@ -74,9 +74,9 @@ public class LocateEventView {
 
 			public void actionPerformed(ActionEvent arg0) {
 				
-				employeeController = null;
+				EmployeeController employeeController = new EmployeeController();
 				
-				EmployeeModel employee;
+				EmployeeModel employee = new EmployeeModel();
 				
 				String matricula = localizarFuncionariotextField.getText();
 				employee = employeeController.searchEmployee(matricula);
