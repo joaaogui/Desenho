@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 public class LocateEventView {
 
 	JFrame frame;
-	private JTextField localizarFuncionariotextField;
+	static JTextField localizarFuncionariotextField;
 
 	/**
 	 * Launch the application.
@@ -78,13 +78,17 @@ public class LocateEventView {
 				
 				EmployeeModel employee = new EmployeeModel();
 				
-				String matricula = localizarFuncionariotextField.getText();
-				employee = employeeController.searchEmployee(matricula);
+				String id_string = localizarFuncionariotextField.getText();
+				int id = Integer.parseInt(id_string); 
+				employee = employeeController.searchEmployeeById(id);
 				
-				if(employee != null)
-					JOptionPane.showMessageDialog(null, "Nome do usuário: "+employee.getNome());
+				if(employee != null){
+					frame.dispose();
+					AddEventView addEventView = new AddEventView();
+					addEventView.frame.setVisible(true);
+				}
 				else 
-					JOptionPane.showMessageDialog(null, "Nulo");
+					JOptionPane.showMessageDialog(null, "Funcionário Não Encontrado");
 
 			}
 		});
