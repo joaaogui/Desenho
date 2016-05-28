@@ -1,36 +1,58 @@
 package model;
+import javax.persistence.*;
 
+@Entity
 public class EventModel {
 	
+	@Id
+	@GeneratedValue
+	@Column  
+	private int id;
+	@Column
 	private String dataInicial;
+	@Column
 	private String dataFinal;
-	private String observação;
+	@Column
+	private String observacao;
+	@Column
 	private String tipoEvento;
+	@Column
 	private String matriculaProfissional;
 	
 	public EventModel(){
 		
 	}
 	
-	public EventModel(String dataInicial, String dataFinal, String observação, String tipoEvento, String matriculaProfissional){
+	public EventModel(int id, String dataInicial, String dataFinal, String observacao, String tipoEvento, String matriculaProfissional){
+		this.id = id;
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
-		this.observação = observação;
+		this.observacao = observacao;
 		this.tipoEvento = tipoEvento;
 		this.matriculaProfissional = matriculaProfissional;
 	}
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getDataInicial() {
 		return dataInicial;
 	}
 	public void setDataInicial(String dataInicial) {
 		this.dataInicial = dataInicial;
 	}
-	public String getObservação() {
-		return observação;
+	public String getObservacao() {
+		return observacao;
 	}
-	public void setObservação(String observação) {
-		this.observação = observação;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 	public String getTipoEvento() {
 		return tipoEvento;

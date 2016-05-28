@@ -3,8 +3,7 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import org.hibernate.Query;
+import javax.persistence.Query;
 
 import model.EmployeeModel;
 
@@ -40,15 +39,14 @@ public class EmployeeDao {
 		entityManager.getTransaction().commit();
 		
 	}
-	/*
+	
 	public EmployeeModel searchEmployee(String matricula){
 		
 		String SQL = "Select * from Employee where";	
-		Query query = (Query) entityManager.createNativeQuery(SQL);
+		Query query =  entityManager.createNativeQuery(SQL);
 		query.setParameter("matricula", matricula);
-		EmployeeModel employee = (EmployeeModel) ((javax.persistence.Query) query).getSingleResult();
+		EmployeeModel employee = (EmployeeModel) query.getSingleResult();
 		
 		return employee;
 	}
-	*/
 }

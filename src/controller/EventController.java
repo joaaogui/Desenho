@@ -6,10 +6,10 @@ import model.EventModel;
 
 public class EventController {
 	
-	public EventModel newEvent(String dataInicial, String dataFinal, String observação, String tipoEvento, String matriculaProfissional){
+	public EventModel newEvent(int id, String dataInicial, String dataFinal, String observacao, String tipoEvento, String matriculaProfissional){
 		EventModel event;
 		
-		event = new EventModel(dataInicial,  dataFinal,  observação,  tipoEvento, matriculaProfissional);
+		event = new EventModel(id, dataInicial,  dataFinal,  observacao,  tipoEvento, matriculaProfissional);
 		
 		return event;
 	}

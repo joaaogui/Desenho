@@ -25,7 +25,7 @@ import javax.swing.JTextArea;
 
 public class AddEventView {
 
-	private static JTextArea observaçõesTextArea;
+	private static JTextArea observacoesTextArea;
 	static JFrame frame;
 	private static JTextField matriculaTextField;
 	private static JTextField nomeTextField;
@@ -148,7 +148,7 @@ public class AddEventView {
 				
 				event.setDataInicial(dataInicialTextField.getText());
 				event.setDataFinal(dataFinalTextField.getText());
-				//event.setObservação(observaçõesTextArea.getText());
+				//event.setObservaï¿½ï¿½o(observaï¿½ï¿½esTextArea.getText());
 				event.setMatriculaProfissional(matriculaTextField.getText());
 				//event.setTipoEvento(tipoEventoComboBox.getToolTipText());
 				
@@ -168,8 +168,8 @@ public class AddEventView {
 		lblObservaes.setBounds(416, 305, 73, 14);
 		frame.getContentPane().add(lblObservaes);
 		
-		JTextArea observaçõesTextArea = new JTextArea();
-		observaçõesTextArea.setBounds(416, 333, 200, 56);
-		frame.getContentPane().add(observaçõesTextArea);
+		JTextArea observacoesTextArea = new JTextArea();
+		observacoesTextArea.setBounds(416, 333, 200, 56);
+		frame.getContentPane().add(observacoesTextArea);
 	}
 }
