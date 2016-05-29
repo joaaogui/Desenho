@@ -14,9 +14,17 @@ public class EmployeeDao {
 	
 	public static EmployeeDao getInstance(){
 		if(instance == null)
-			instance = new EmployeeDao();
+			initializeInstance();
 		
 		return instance;
+	}
+	
+	private static synchronized void initializeInstance() 
+	{
+		if (instance == null) 
+		{
+			instance = new EmployeeDao();
+		}
 	}
 	
 	private void EmployeDao(){
