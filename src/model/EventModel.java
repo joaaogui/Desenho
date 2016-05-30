@@ -7,17 +7,15 @@ public class EventModel {
 	@Id
 	@GeneratedValue
 	@Column  
-	private int id;
+	protected int id;
 	@Column
-	private String nomeEvento;
+	protected String nomeEvento;
 	@Column
-	private String dataInicial;
+	protected String dataInicial;
 	@Column
-	private String dataFinal;
+	protected String dataFinal;
 	@Column
-	private String observacao;
-	@Column
-	private String tipoEvento;
+	protected String observacao;
 	
 	public EventModel(){
 		

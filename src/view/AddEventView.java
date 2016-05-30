@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 
 import controller.EmployeeController;
 import controller.EventController;
+import decorator.AbonoAnual;
 import model.EmployeeModel;
 import model.EventModel;
 
@@ -122,7 +123,10 @@ public class AddEventView {
 		frame.getContentPane().add(lblTipoDeEvento);
 		
 		JComboBox tipoEventoComboBox = new JComboBox();
-		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
+		//tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
+		EventModel event = new EventModel();
+		event = new AbonoAnual(event);
+		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String [] {"", event.getNomeEvento()}));
 		tipoEventoComboBox.setBounds(33, 397, 276, 20);
 		frame.getContentPane().add(tipoEventoComboBox);
 
@@ -149,14 +153,14 @@ public class AddEventView {
 				event.setDataInicial(dataInicialTextField.getText());
 				event.setDataFinal(dataFinalTextField.getText());
 				//event.setObserva��o(observa��esTextArea.getText());
-				event.setMatriculaProfissional(matriculaTextField.getText());
+				//event.setMatriculaProfissional(matriculaTextField.getText());
 				//event.setTipoEvento(tipoEventoComboBox.getToolTipText());
 				
 				EventController eventController = new EventController();
 				
 				eventController.addEvent(event);
 				
-				JOptionPane.showMessageDialog(null, "Evento Adicionado Com Sucesso na MAtricula: "+ event.getMatriculaProfissional());
+				//JOptionPane.showMessageDialog(null, "Evento Adicionado Com Sucesso na MAtricula: "+ event.getMatriculaProfissional());
 				
 			}
 		});
