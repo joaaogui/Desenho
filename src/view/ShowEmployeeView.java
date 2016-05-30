@@ -15,6 +15,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
 
 public class ShowEmployeeView {
 
@@ -49,6 +51,15 @@ public class ShowEmployeeView {
 	private JTextField conjugeTextField;
 	private JTextField nomePaiTextField;
 	private JTextField nomemaeTextField;
+	private JTextField escolaridadeTextField;
+	private JTextField cursoTextField;
+	private JTextField licenciaturaTextField;
+	private JTextField instituicaoTextField;
+	private JTextField cargoTextField;
+	private JTextField disciplinaTextField;
+	private JTextField funcaoTextField;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -401,24 +412,152 @@ public class ShowEmployeeView {
 		
 		JPanel panelAcademicos = new JPanel();
 		tabbedPane.addTab("Dados Acad\u00EAmicos", null, panelAcademicos, null);
+		panelAcademicos.setLayout(null);
+		
+		JLabel lblEscolaridade = new JLabel("Escolaridade");
+		lblEscolaridade.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEscolaridade.setBounds(10, 11, 91, 14);
+		panelAcademicos.add(lblEscolaridade);
+		
+		escolaridadeTextField = new JTextField();
+		escolaridadeTextField.setBounds(10, 26, 189, 20);
+		panelAcademicos.add(escolaridadeTextField);
+		escolaridadeTextField.setColumns(10);
+		
+		JLabel lblCurso = new JLabel("Curso");
+		lblCurso.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCurso.setBounds(209, 11, 46, 14);
+		panelAcademicos.add(lblCurso);
+		
+		cursoTextField = new JTextField();
+		cursoTextField.setBounds(209, 26, 201, 20);
+		panelAcademicos.add(cursoTextField);
+		cursoTextField.setColumns(10);
+		
+		JLabel lblNewLabel_6 = new JLabel("Licenciatura");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_6.setBounds(418, 11, 91, 14);
+		panelAcademicos.add(lblNewLabel_6);
+		
+		licenciaturaTextField = new JTextField();
+		licenciaturaTextField.setBounds(420, 26, 199, 20);
+		panelAcademicos.add(licenciaturaTextField);
+		licenciaturaTextField.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Institui\u00E7\u00E3o");
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_7.setBounds(10, 57, 101, 14);
+		panelAcademicos.add(lblNewLabel_7);
+		
+		instituicaoTextField = new JTextField();
+		instituicaoTextField.setBounds(10, 73, 301, 20);
+		panelAcademicos.add(instituicaoTextField);
+		instituicaoTextField.setColumns(10);
+		
+		JLabel lblPs = new JLabel("P\u00F3s Gradua\u00E7\u00E3o");
+		lblPs.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPs.setBounds(321, 57, 101, 14);
+		panelAcademicos.add(lblPs);
+		
+		JComboBox posComboBox = new JComboBox();
+		posComboBox.setBounds(321, 73, 150, 20);
+		panelAcademicos.add(posComboBox);
 		
 		JPanel panelAtuacao = new JPanel();
 		tabbedPane.addTab("Atua\u00E7\u00E3o", null, panelAtuacao, null);
+		panelAtuacao.setLayout(null);
+		
+		JLabel lblCargo = new JLabel("Cargo");
+		lblCargo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCargo.setBounds(10, 11, 46, 14);
+		panelAtuacao.add(lblCargo);
+		
+		JLabel lblNewLabel_8 = new JLabel("Disciplina De Concurso");
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_8.setBounds(192, 11, 137, 14);
+		panelAtuacao.add(lblNewLabel_8);
+		
+		JLabel lblFuno = new JLabel("Fun\u00E7\u00E3o");
+		lblFuno.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblFuno.setBounds(425, 11, 46, 14);
+		panelAtuacao.add(lblFuno);
+		
+		cargoTextField = new JTextField();
+		cargoTextField.setBounds(10, 26, 162, 20);
+		panelAtuacao.add(cargoTextField);
+		cargoTextField.setColumns(10);
+		
+		disciplinaTextField = new JTextField();
+		disciplinaTextField.setBounds(192, 26, 222, 20);
+		panelAtuacao.add(disciplinaTextField);
+		disciplinaTextField.setColumns(10);
+		
+		funcaoTextField = new JTextField();
+		funcaoTextField.setBounds(425, 26, 194, 20);
+		panelAtuacao.add(funcaoTextField);
+		funcaoTextField.setColumns(10);
+		
+		JLabel lblCargaHorria = new JLabel("Carga Hor\u00E1ria");
+		lblCargaHorria.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblCargaHorria.setBounds(10, 82, 127, 14);
+		panelAtuacao.add(lblCargaHorria);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 129, 99, 20);
+		panelAtuacao.add(textField);
+		textField.setColumns(10);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 57, 609, 14);
+		panelAtuacao.add(separator_1);
+		
+		JLabel lblHoraDeEntrada = new JLabel("Hora De Entrada");
+		lblHoraDeEntrada.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblHoraDeEntrada.setBounds(10, 107, 99, 14);
+		panelAtuacao.add(lblHoraDeEntrada);
+		
+		JLabel lblHoraDeSada = new JLabel("Hora De Sa\u00EDda");
+		lblHoraDeSada.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblHoraDeSada.setBounds(143, 107, 87, 14);
+		panelAtuacao.add(lblHoraDeSada);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(144, 129, 109, 20);
+		panelAtuacao.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblDias = new JLabel("Dias ");
+		lblDias.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDias.setBounds(300, 107, 46, 14);
+		panelAtuacao.add(lblDias);
+		
+		JList list = new JList();
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {"Segunda", "Ter\u00E7a", "Quarta", "Quinta", "Sexta"};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		list.setBounds(300, 131, 114, 92);
+		panelAtuacao.add(list);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(20, 447, 89, 23);
 		frame.getContentPane().add(btnVoltar);
 		
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(357, 447, 89, 23);
+		JButton btnEditar = new JButton("Excluir");
+		btnEditar.setBounds(345, 447, 89, 23);
 		frame.getContentPane().add(btnEditar);
 		
 		JButton btnDesativar = new JButton("Desativar");
-		btnDesativar.setBounds(456, 447, 89, 23);
+		btnDesativar.setBounds(444, 447, 89, 23);
 		frame.getContentPane().add(btnDesativar);
 		
-		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(555, 447, 89, 23);
+		JButton btnExcluir = new JButton("Salvar Edi\u00E7\u00F5es");
+		btnExcluir.setBounds(543, 447, 101, 23);
 		frame.getContentPane().add(btnExcluir);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
