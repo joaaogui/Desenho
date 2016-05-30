@@ -549,15 +549,15 @@ public class ShowEmployeeView {
 		frame.getContentPane().add(btnVoltar);
 		
 		JButton btnEditar = new JButton("Excluir");
-		btnEditar.setBounds(345, 447, 89, 23);
+		btnEditar.setBounds(321, 447, 89, 23);
 		frame.getContentPane().add(btnEditar);
 		
 		JButton btnDesativar = new JButton("Desativar");
-		btnDesativar.setBounds(444, 447, 89, 23);
+		btnDesativar.setBounds(420, 447, 89, 23);
 		frame.getContentPane().add(btnDesativar);
 		
 		JButton btnExcluir = new JButton("Salvar Edi\u00E7\u00F5es");
-		btnExcluir.setBounds(543, 447, 101, 23);
+		btnExcluir.setBounds(519, 447, 125, 23);
 		frame.getContentPane().add(btnExcluir);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
