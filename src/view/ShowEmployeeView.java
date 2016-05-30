@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JSeparator;
+import javax.swing.ImageIcon;
 
 public class ShowEmployeeView {
 
@@ -23,7 +25,30 @@ public class ShowEmployeeView {
 	private JTextField admissaoTextField;
 	private JLabel lblEn;
 	private JTextField nascimentoTextField;
-	private JTextField textField;
+	private JTextField sexoTextField;
+	private JTextField rgTextField;
+	private JTextField emissorTextField;
+	private JTextField cpfTextField;
+	private JTextField telFixoTextField;
+	private JTextField telCelularTextField;
+	private JTextField emailTextField;
+	private JTextField enderecoTextField;
+	private JTextField bairroTextField;
+	private JTextField cidadeTextField;
+	private JTextField ufTextField;
+	private JTextField cepTextField;
+	private JTextField nacionalidadeTextField;
+	private JTextField naturalidadeTextField;
+	private JTextField ufComplementarTextField;
+	private JTextField pisTextField;
+	private JTextField emissaoPisTextField;
+	private JTextField tituloEleitoralTextField;
+	private JTextField zonaTextField;
+	private JTextField secaoTextField;
+	private JTextField estadoCivilTextField;
+	private JTextField conjugeTextField;
+	private JTextField nomePaiTextField;
+	private JTextField nomemaeTextField;
 
 	/**
 	 * Launch the application.
@@ -58,7 +83,7 @@ public class ShowEmployeeView {
 		frame.getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 634, 421);
+		tabbedPane.setBounds(10, 149, 634, 283);
 		//tabbedPane.addTab("Dados Academicos", "nothing");
 		frame.getContentPane().add(tabbedPane);
 		
@@ -122,13 +147,257 @@ public class ShowEmployeeView {
 		lblSexo.setBounds(140, 58, 32, 14);
 		panelFuncionais.add(lblSexo);
 		
-		textField = new JTextField();
-		textField.setBounds(140, 74, 97, 20);
-		panelFuncionais.add(textField);
-		textField.setColumns(10);
+		sexoTextField = new JTextField();
+		sexoTextField.setBounds(140, 74, 97, 20);
+		panelFuncionais.add(sexoTextField);
+		sexoTextField.setColumns(10);
+		
+		JLabel lblRg = new JLabel("RG");
+		lblRg.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblRg.setBounds(247, 58, 16, 14);
+		panelFuncionais.add(lblRg);
+		
+		rgTextField = new JTextField();
+		rgTextField.setBounds(247, 74, 86, 20);
+		panelFuncionais.add(rgTextField);
+		rgTextField.setColumns(10);
+		
+		JLabel lblOrgoEmissor = new JLabel("Org\u00E3o Emissor");
+		lblOrgoEmissor.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblOrgoEmissor.setBounds(343, 58, 97, 14);
+		panelFuncionais.add(lblOrgoEmissor);
+		
+		emissorTextField = new JTextField();
+		emissorTextField.setBounds(343, 74, 86, 20);
+		panelFuncionais.add(emissorTextField);
+		emissorTextField.setColumns(10);
+		
+		JLabel lblCpf = new JLabel("CPF");
+		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCpf.setBounds(438, 58, 26, 14);
+		panelFuncionais.add(lblCpf);
+		
+		cpfTextField = new JTextField();
+		cpfTextField.setBounds(439, 74, 153, 20);
+		panelFuncionais.add(cpfTextField);
+		cpfTextField.setColumns(10);
+		
+		JLabel lblTelefone = new JLabel("Telefone Fixo");
+		lblTelefone.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblTelefone.setBounds(10, 105, 86, 14);
+		panelFuncionais.add(lblTelefone);
+		
+		telFixoTextField = new JTextField();
+		telFixoTextField.setBounds(10, 121, 143, 20);
+		panelFuncionais.add(telFixoTextField);
+		telFixoTextField.setColumns(10);
+		
+		JLabel lblTelefoneCelular = new JLabel("Telefone Celular");
+		lblTelefoneCelular.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblTelefoneCelular.setBounds(164, 105, 99, 14);
+		panelFuncionais.add(lblTelefoneCelular);
+		
+		telCelularTextField = new JTextField();
+		telCelularTextField.setBounds(163, 121, 143, 20);
+		panelFuncionais.add(telCelularTextField);
+		telCelularTextField.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEmail.setBounds(316, 105, 46, 14);
+		panelFuncionais.add(lblEmail);
+		
+		emailTextField = new JTextField();
+		emailTextField.setBounds(316, 121, 276, 20);
+		panelFuncionais.add(emailTextField);
+		emailTextField.setColumns(10);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 152, 582, 20);
+		panelFuncionais.add(separator);
+		
+		JLabel lblNewLabel_1 = new JLabel("Endere\u00E7o");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_1.setBounds(10, 162, 63, 14);
+		panelFuncionais.add(lblNewLabel_1);
+		
+		enderecoTextField = new JTextField();
+		enderecoTextField.setBounds(10, 182, 370, 20);
+		panelFuncionais.add(enderecoTextField);
+		enderecoTextField.setColumns(10);
+		
+		JLabel lblBairro = new JLabel("Bairro");
+		lblBairro.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblBairro.setBounds(390, 162, 46, 14);
+		panelFuncionais.add(lblBairro);
+		
+		bairroTextField = new JTextField();
+		bairroTextField.setBounds(390, 182, 202, 20);
+		panelFuncionais.add(bairroTextField);
+		bairroTextField.setColumns(10);
+		
+		JLabel lblCidade = new JLabel("Cidade");
+		lblCidade.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCidade.setBounds(10, 213, 46, 14);
+		panelFuncionais.add(lblCidade);
+		
+		cidadeTextField = new JTextField();
+		cidadeTextField.setBounds(10, 232, 253, 20);
+		panelFuncionais.add(cidadeTextField);
+		cidadeTextField.setColumns(10);
+		
+		JLabel lblUf = new JLabel("UF");
+		lblUf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblUf.setBounds(275, 213, 46, 14);
+		panelFuncionais.add(lblUf);
+		
+		ufTextField = new JTextField();
+		ufTextField.setBounds(275, 232, 105, 20);
+		panelFuncionais.add(ufTextField);
+		ufTextField.setColumns(10);
+		
+		JLabel lblCep = new JLabel("CEP");
+		lblCep.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCep.setBounds(390, 213, 46, 14);
+		panelFuncionais.add(lblCep);
+		
+		cepTextField = new JTextField();
+		cepTextField.setBounds(390, 232, 202, 20);
+		panelFuncionais.add(cepTextField);
+		cepTextField.setColumns(10);
 		
 		JPanel panelComplementares = new JPanel();
 		tabbedPane.addTab("Dados Complementares", null, panelComplementares, null);
+		panelComplementares.setLayout(null);
+		
+		JLabel lblNacionalidade = new JLabel("Nacionalidade");
+		lblNacionalidade.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNacionalidade.setBounds(10, 11, 83, 14);
+		panelComplementares.add(lblNacionalidade);
+		
+		JLabel lblNaturalidade = new JLabel("Naturalidade");
+		lblNaturalidade.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNaturalidade.setBounds(162, 11, 83, 14);
+		panelComplementares.add(lblNaturalidade);
+		
+		JLabel lblUf_1 = new JLabel("UF");
+		lblUf_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblUf_1.setBounds(327, 11, 46, 14);
+		panelComplementares.add(lblUf_1);
+		
+		JComboBox racaComboBox = new JComboBox();
+		racaComboBox.setBounds(454, 27, 165, 20);
+		panelComplementares.add(racaComboBox);
+		
+		JLabel lblCorraa = new JLabel("Cor/Ra\u00E7a");
+		lblCorraa.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCorraa.setBounds(454, 11, 77, 14);
+		panelComplementares.add(lblCorraa);
+		
+		nacionalidadeTextField = new JTextField();
+		nacionalidadeTextField.setBounds(10, 27, 142, 20);
+		panelComplementares.add(nacionalidadeTextField);
+		nacionalidadeTextField.setColumns(10);
+		
+		naturalidadeTextField = new JTextField();
+		naturalidadeTextField.setBounds(162, 27, 151, 20);
+		panelComplementares.add(naturalidadeTextField);
+		naturalidadeTextField.setColumns(10);
+		
+		ufComplementarTextField = new JTextField();
+		ufComplementarTextField.setBounds(327, 27, 117, 20);
+		panelComplementares.add(ufComplementarTextField);
+		ufComplementarTextField.setColumns(10);
+		
+		JLabel lblPispasep = new JLabel("PIS/PASEP");
+		lblPispasep.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPispasep.setBounds(10, 58, 100, 14);
+		panelComplementares.add(lblPispasep);
+		
+		pisTextField = new JTextField();
+		pisTextField.setBounds(10, 73, 145, 20);
+		panelComplementares.add(pisTextField);
+		pisTextField.setColumns(10);
+		
+		JLabel lblEmissoPis = new JLabel("Emiss\u00E3o PIS");
+		lblEmissoPis.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEmissoPis.setBounds(162, 58, 83, 14);
+		panelComplementares.add(lblEmissoPis);
+		
+		emissaoPisTextField = new JTextField();
+		emissaoPisTextField.setBounds(162, 73, 124, 20);
+		panelComplementares.add(emissaoPisTextField);
+		emissaoPisTextField.setColumns(10);
+		
+		JLabel lblTituloEleitoral = new JLabel("Titulo Eleitoral");
+		lblTituloEleitoral.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblTituloEleitoral.setBounds(296, 58, 100, 14);
+		panelComplementares.add(lblTituloEleitoral);
+		
+		tituloEleitoralTextField = new JTextField();
+		tituloEleitoralTextField.setBounds(296, 73, 117, 20);
+		panelComplementares.add(tituloEleitoralTextField);
+		tituloEleitoralTextField.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Zona");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_3.setBounds(423, 58, 46, 14);
+		panelComplementares.add(lblNewLabel_3);
+		
+		zonaTextField = new JTextField();
+		zonaTextField.setBounds(423, 73, 86, 20);
+		panelComplementares.add(zonaTextField);
+		zonaTextField.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("Se\u00E7\u00E3o");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_4.setBounds(519, 58, 46, 14);
+		panelComplementares.add(lblNewLabel_4);
+		
+		secaoTextField = new JTextField();
+		secaoTextField.setBounds(519, 73, 100, 20);
+		panelComplementares.add(secaoTextField);
+		secaoTextField.setColumns(10);
+		
+		JLabel lblEstadoCivil = new JLabel("Estado Civil");
+		lblEstadoCivil.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEstadoCivil.setBounds(10, 104, 83, 14);
+		panelComplementares.add(lblEstadoCivil);
+		
+		JLabel lblNomeDoConjuge = new JLabel("Nome Do Conjuge");
+		lblNomeDoConjuge.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNomeDoConjuge.setBounds(150, 104, 110, 14);
+		panelComplementares.add(lblNomeDoConjuge);
+		
+		JLabel lblNewLabel_5 = new JLabel("Nome Do Pai");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_5.setBounds(379, 104, 90, 14);
+		panelComplementares.add(lblNewLabel_5);
+		
+		estadoCivilTextField = new JTextField();
+		estadoCivilTextField.setBounds(10, 120, 124, 20);
+		panelComplementares.add(estadoCivilTextField);
+		estadoCivilTextField.setColumns(10);
+		
+		conjugeTextField = new JTextField();
+		conjugeTextField.setBounds(150, 120, 212, 20);
+		panelComplementares.add(conjugeTextField);
+		conjugeTextField.setColumns(10);
+		
+		nomePaiTextField = new JTextField();
+		nomePaiTextField.setBounds(379, 120, 240, 20);
+		panelComplementares.add(nomePaiTextField);
+		nomePaiTextField.setColumns(10);
+		
+		JLabel lblNomeDaMe = new JLabel("Nome Da M\u00E3e");
+		lblNomeDaMe.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNomeDaMe.setBounds(10, 151, 83, 14);
+		panelComplementares.add(lblNomeDaMe);
+		
+		nomemaeTextField = new JTextField();
+		nomemaeTextField.setBounds(10, 166, 238, 20);
+		panelComplementares.add(nomemaeTextField);
+		nomemaeTextField.setColumns(10);
 		
 		JPanel panelAcademicos = new JPanel();
 		tabbedPane.addTab("Dados Acad\u00EAmicos", null, panelAcademicos, null);
@@ -151,5 +420,10 @@ public class ShowEmployeeView {
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setBounds(555, 447, 89, 23);
 		frame.getContentPane().add(btnExcluir);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(ShowEmployeeView.class.getResource("/resources/SGP2.png")));
+		lblNewLabel_2.setBounds(75, -13, 504, 165);
+		frame.getContentPane().add(lblNewLabel_2);
 	}
 }
