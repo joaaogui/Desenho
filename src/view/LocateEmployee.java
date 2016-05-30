@@ -11,9 +11,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class LocateEventView {
+public class LocateEmployee {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField localizarFuncionariotextField;
 
 	/**
@@ -23,7 +23,7 @@ public class LocateEventView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LocateEventView window = new LocateEventView();
+					LocateEmployee window = new LocateEmployee();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class LocateEventView {
 	/**
 	 * Create the application.
 	 */
-	public LocateEventView() {
+	public LocateEmployee() {
 		initialize();
 	}
 
@@ -49,7 +49,7 @@ public class LocateEventView {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(LocateEventView.class.getResource("/resources/SGP2.png")));
+		lblNewLabel.setIcon(new ImageIcon(LocateEmployee.class.getResource("/resources/SGP2.png")));
 		lblNewLabel.setBounds(47, 11, 539, 144);
 		frame.getContentPane().add(lblNewLabel);
 		

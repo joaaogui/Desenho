@@ -71,7 +71,7 @@ public class InitialScreenView {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.dispose();
-				LocateEventView eventView = new LocateEventView();
+				LocateEmployee eventView = new LocateEmployee();
 				eventView.frame.setVisible(true);	
 			}
 		});
