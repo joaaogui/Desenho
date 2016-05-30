@@ -17,6 +17,8 @@ import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ShowEmployeeView {
 
@@ -545,18 +547,37 @@ public class ShowEmployeeView {
 		panelAtuacao.add(list);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				LocateEmployee eventView = new LocateEmployee();
+				eventView.frame.setVisible(true);	
+			}
+		});
 		btnVoltar.setBounds(20, 447, 89, 23);
 		frame.getContentPane().add(btnVoltar);
 		
 		JButton btnEditar = new JButton("Excluir");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnEditar.setBounds(321, 447, 89, 23);
 		frame.getContentPane().add(btnEditar);
 		
 		JButton btnDesativar = new JButton("Desativar");
+		btnDesativar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnDesativar.setBounds(420, 447, 89, 23);
 		frame.getContentPane().add(btnDesativar);
 		
 		JButton btnExcluir = new JButton("Salvar Edi\u00E7\u00F5es");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnExcluir.setBounds(519, 447, 125, 23);
 		frame.getContentPane().add(btnExcluir);
 		
