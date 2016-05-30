@@ -4,9 +4,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import controller.EmployeeController;
+import model.EmployeeModel;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,7 +19,9 @@ import java.awt.event.ActionEvent;
 public class LocateEmployee {
 
 	JFrame frame;
+
 	private JTextField localizarFuncionariotextField;
+
 
 	/**
 	 * Launch the application.
@@ -65,9 +72,26 @@ public class LocateEmployee {
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
+			private EmployeeController employeeController;
+
 			public void actionPerformed(ActionEvent arg0) {
 				
+				EmployeeController employeeController = new EmployeeController();
 				
+				EmployeeModel employee = new EmployeeModel();
+				
+				String id_string = localizarFuncionariotextField.getText();
+				int id = Integer.parseInt(id_string); 
+				employee = employeeController.searchEmployeeById(id);
+				
+				if(employee != null){
+					frame.dispose();
+					AddEventView addEventView = new AddEventView();
+					addEventView.frame.setVisible(true);
+				}
+				else 
+					JOptionPane.showMessageDialog(null, "Funcionário Não Encontrado");
+
 			}
 		});
 		btnBuscar.setBounds(529, 253, 89, 23);

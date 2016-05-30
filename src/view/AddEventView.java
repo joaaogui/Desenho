@@ -4,10 +4,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
+import controller.EmployeeController;
+import controller.EventController;
+import decorator.AbonoAnual;
+import model.EmployeeModel;
 import model.EventModel;
 
 import java.awt.Font;
@@ -20,8 +26,8 @@ import javax.swing.JTextArea;
 
 public class AddEventView {
 
-	private static JTextArea observaçõesTextArea;
-	private static JFrame frame;
+	private static JTextArea observacoesTextArea;
+	static JFrame frame;
 	private static JTextField matriculaTextField;
 	private static JTextField nomeTextField;
 	private static JTextField dataInicialTextField;
@@ -66,8 +72,6 @@ public class AddEventView {
 		frame.getContentPane().add(lblNewLabel);
 		
 		matriculaTextField = new JTextField();
-		matriculaTextField.setText("0000.000-0");
-		matriculaTextField.setEditable(false);
 		matriculaTextField.setBounds(33, 251, 206, 31);
 		frame.getContentPane().add(matriculaTextField);
 		matriculaTextField.setColumns(10);
@@ -83,8 +87,7 @@ public class AddEventView {
 		frame.getContentPane().add(lblMatricula);
 		
 		nomeTextField = new JTextField();
-		nomeTextField.setText("Marco José Da Silva");
-		nomeTextField.setEditable(false);
+		
 		nomeTextField.setBounds(263, 251, 353, 31);
 		frame.getContentPane().add(nomeTextField);
 		nomeTextField.setColumns(10);
@@ -120,23 +123,45 @@ public class AddEventView {
 		frame.getContentPane().add(lblTipoDeEvento);
 		
 		JComboBox tipoEventoComboBox = new JComboBox();
-		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
+		//tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
+		EventModel event = new EventModel();
+		event = new AbonoAnual(event);
+		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String [] {"", event.getNomeEvento()}));
 		tipoEventoComboBox.setBounds(33, 397, 276, 20);
 		frame.getContentPane().add(tipoEventoComboBox);
+
+		EmployeeModel employee = new EmployeeModel();
+		EmployeeController employeeController = new EmployeeController();
+		String id_string =  LocateEventView.localizarFuncionariotextField.getText();
+		int id = Integer.parseInt(id_string); 
+		employee = employeeController.searchEmployeeById(id);
+		
+		nomeTextField.setText(employee.getNome());
+		nomeTextField.setEditable(false);
+		
+		matriculaTextField.setText(employee.getMatricula());
+		matriculaTextField.setEditable(false);
 		
 		JButton btnGravar = new JButton("Gravar");
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int matricula = Integer.parseInt(AddEventView.matriculaTextField.getText());
-				String tipoEvento = AddEventView.tipoEventoComboBox.getSelectedItem().toString();
-				EventModel event = new EventModel(AddEventView.dataInicialTextField.getText(),  AddEventView.dataFinalTextField.getText(),  AddEventView.observaçõesTextArea.getText(),  tipoEvento , matricula);
+				String tipoEvento = "saisj";
+			    
+				EventModel event = new EventModel();
 				
-				event.setDataInicial(AddEventView.dataInicialTextField.getText());
-				event.setDataFinal(AddEventView.dataFinalTextField.getText());
-				event.setObservação(AddEventView.observaçõesTextArea.getText());
-				event.setMatriculaProfissional(matricula);
-				event.setTipoEvento(tipoEvento);
+				event.setDataInicial(dataInicialTextField.getText());
+				event.setDataFinal(dataFinalTextField.getText());
+				//event.setObservaï¿½ï¿½o(observaï¿½ï¿½esTextArea.getText());
+				//event.setMatriculaProfissional(matriculaTextField.getText());
+				//event.setTipoEvento(tipoEventoComboBox.getToolTipText());
+				
+				EventController eventController = new EventController();
+				
+				eventController.addEvent(event);
+				
+				//JOptionPane.showMessageDialog(null, "Evento Adicionado Com Sucesso na MAtricula: "+ event.getMatriculaProfissional());
+				
 			}
 		});
 		btnGravar.setBounds(527, 419, 89, 23);
@@ -147,8 +172,8 @@ public class AddEventView {
 		lblObservaes.setBounds(416, 305, 73, 14);
 		frame.getContentPane().add(lblObservaes);
 		
-		JTextArea observaçõesTextArea = new JTextArea();
-		observaçõesTextArea.setBounds(416, 333, 200, 56);
-		frame.getContentPane().add(observaçõesTextArea);
+		JTextArea observacoesTextArea = new JTextArea();
+		observacoesTextArea.setBounds(416, 333, 200, 56);
+		frame.getContentPane().add(observacoesTextArea);
 	}
 }

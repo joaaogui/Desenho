@@ -35,6 +35,10 @@ public class ComplementaryDataModel {
 	@Column
 	public String nomeMae;
 	
+	public ComplementaryDataModel(){
+		
+	}
+	
 	public ComplementaryDataModel(String nacionalidade, String naturalidade, String raca,
 			String pisPasep, String emissaoPis, String tituloEleitoral, String zonaEleitoral, String estadoCivil,
 			String nomeConjuge, String nomePai, String nomeMae) {

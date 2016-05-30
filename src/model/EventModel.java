@@ -1,54 +1,73 @@
 package model;
+import javax.persistence.*;
 
+@Entity
 public class EventModel {
 	
-	private String dataInicial;
-	private String dataFinal;
-	private String observação;
-	private String tipoEvento;
-	private int matriculaProfissional;
+	@Id
+	@GeneratedValue
+	@Column  
+	protected int id;
+	@Column
+	protected String nomeEvento;
+	@Column
+	protected String dataInicial;
+	@Column
+	protected String dataFinal;
+	@Column
+	protected String observacao;
 	
-	public EventModel(String dataInicial, String dataFinal, String observação, String tipoEvento, int matriculaProfissional){
-		this.dataInicial = dataInicial;
-		this.dataFinal = dataFinal;
-		this.observação = observação;
-		this.tipoEvento = tipoEvento;
-		this.matriculaProfissional = matriculaProfissional;
+	public EventModel(){
+		
 	}
 	
+	public EventModel(int id, String nomeEvento, String dataInicial, String dataFinal, String observacao){
+		this.id = id;
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
+		this.observacao = observacao;
+	}
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getNomeEvento() {
+		return nomeEvento;
+	}
+
+	public void setNomeEvento(String nomeEvento) {
+		this.nomeEvento = nomeEvento;
+	}
+
 	public String getDataInicial() {
 		return dataInicial;
 	}
+	
 	public void setDataInicial(String dataInicial) {
 		this.dataInicial = dataInicial;
 	}
-	public String getObservação() {
-		return observação;
+	
+	public String getObservacao() {
+		return observacao;
 	}
-	public void setObservação(String observação) {
-		this.observação = observação;
+	
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
-	public String getTipoEvento() {
-		return tipoEvento;
-	}
-	public void setTipoEvento(String tipoEvento) {
-		this.tipoEvento = tipoEvento;
-	}
+	
 	public String getDataFinal() {
 		return dataFinal;
 	}
+	
 	public void setDataFinal(String dataFinal) {
 		this.dataFinal = dataFinal;
-	}
-
-	public int getMatriculaProfissional() {
-		return matriculaProfissional;
-	}
-
-	public void setMatriculaProfissional(int matriculaProfissional) {
-		this.matriculaProfissional = matriculaProfissional;
-	}
-	
-	
+	}	
 
 }

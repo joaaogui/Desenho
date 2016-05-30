@@ -66,8 +66,8 @@ public class InitialScreenView {
 		localizarFuncionarioButton.setBounds(109, 188, 157, 23);
 		frame.getContentPane().add(localizarFuncionarioButton);
 		
-		JButton lançamentoButton = new JButton("Lan\u00E7amento");
-		lançamentoButton.addActionListener(new ActionListener() {
+		JButton lancamentoButton = new JButton("Lan\u00E7amento");
+		lancamentoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.dispose();
@@ -75,8 +75,8 @@ public class InitialScreenView {
 				eventView.frame.setVisible(true);	
 			}
 		});
-		lançamentoButton.setBounds(276, 188, 109, 23);
-		frame.getContentPane().add(lançamentoButton);
+		lancamentoButton.setBounds(276, 188, 109, 23);
+		frame.getContentPane().add(lancamentoButton);
 		
 		JButton listagensButton = new JButton("Listagens");
 		listagensButton.setBounds(395, 188, 102, 23);
