@@ -63,6 +63,14 @@ public class InitialScreenView {
 		frame.getContentPane().add(cadastroButton);
 		
 		JButton localizarFuncionarioButton = new JButton("Localizar Funcion\u00E1rio");
+		localizarFuncionarioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				LocateEmployee eventView = new LocateEmployee();
+				eventView.frame.setVisible(true);
+				
+			}
+		});
 		localizarFuncionarioButton.setBounds(109, 188, 157, 23);
 		frame.getContentPane().add(localizarFuncionarioButton);
 		

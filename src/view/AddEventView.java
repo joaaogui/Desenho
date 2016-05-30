@@ -132,7 +132,7 @@ public class AddEventView {
 
 		EmployeeModel employee = new EmployeeModel();
 		EmployeeController employeeController = new EmployeeController();
-		String id_string =  LocateEventView.localizarFuncionariotextField.getText();
+		String id_string =  LocateEmployee.localizarFuncionariotextField.getText();
 		int id = Integer.parseInt(id_string); 
 		employee = employeeController.searchEmployeeById(id);
 		
@@ -145,8 +145,6 @@ public class AddEventView {
 		JButton btnGravar = new JButton("Gravar");
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				String tipoEvento = "saisj";
 			    
 				EventModel event = new EventModel();
 				

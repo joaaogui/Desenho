@@ -20,7 +20,7 @@ public class LocateEmployee {
 
 	JFrame frame;
 
-	private JTextField localizarFuncionariotextField;
+	static JTextField localizarFuncionariotextField;
 
 
 	/**
