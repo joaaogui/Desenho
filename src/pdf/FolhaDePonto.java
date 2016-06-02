@@ -74,7 +74,7 @@ public class FolhaDePonto {
             PdfPCell funcao = new PdfPCell(new Paragraph("Função", fbold));
             funcao.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(funcao);
-            PdfPCell funcaoEntrada = new PdfPCell(new Paragraph("Supervisor", f));
+            PdfPCell funcaoEntrada = new PdfPCell(new Paragraph("", f));
             funcaoEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(funcaoEntrada);
             
