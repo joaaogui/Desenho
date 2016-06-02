@@ -95,7 +95,9 @@ public class FolhaDePonto {
             table.addCell(horaDeSaida);
             
             for(int i= 1 ; i<32; i++){
-            	table.addCell(String.valueOf(i));
+            	PdfPCell dias = new PdfPCell(new Paragraph(String.valueOf(i) , fbold));
+            	dias.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                table.addCell(dias);
                 table.addCell("");
                 table.addCell("");
                 table.addCell("");
