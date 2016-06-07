@@ -8,19 +8,23 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 import controller.EmployeeController;
 import model.EmployeeModel;
 
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 
 public class LocateEmployee {
 
 	JFrame frame;
 
-	static JTextField localizarFuncionariotextField;
+	static JFormattedTextField locateformattedTextField;
 
 
 	/**
@@ -64,11 +68,18 @@ public class LocateEmployee {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(25, 166, 153, 24);
 		frame.getContentPane().add(lblNewLabel_1);
-		
-		localizarFuncionariotextField = new JTextField();
-		localizarFuncionariotextField.setBounds(25, 209, 593, 33);
-		frame.getContentPane().add(localizarFuncionariotextField);
-		localizarFuncionariotextField.setColumns(10);
+		MaskFormatter mask;
+		try{
+			mask = new MaskFormatter("#");
+			mask.setValidCharacters("0123456789");
+			mask.setValueContainsLiteralCharacters(true);
+			locateformattedTextField = new JFormattedTextField(mask);
+			locateformattedTextField.setBounds(25, 203, 593, 39);
+		}
+		catch(ParseException e2){
+			e2.printStackTrace();
+		}
+		frame.getContentPane().add(locateformattedTextField);
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
@@ -80,7 +91,7 @@ public class LocateEmployee {
 				
 				EmployeeModel employee = new EmployeeModel();
 				
-				String id_string = localizarFuncionariotextField.getText();
+				String id_string = locateformattedTextField.getText();
 				int id = Integer.parseInt(id_string); 
 				employee = employeeController.searchEmployeeById(id);
 				
@@ -96,5 +107,7 @@ public class LocateEmployee {
 		});
 		btnBuscar.setBounds(529, 253, 89, 23);
 		frame.getContentPane().add(btnBuscar);
+		
+		
 	}
 }

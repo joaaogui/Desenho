@@ -345,7 +345,7 @@ public class ComplementaryDataView {
 								JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios"); 
 					} else {   
 							EmployeeController employeeController = new EmployeeController();  
-							employeeController.addEmployee(employee); 
+							employeeController.addEmployee(employee);
 							JOptionPane.showMessageDialog(null, "Usuário "+EmployeeView.nomeField.getText()+" inserido com sucesso! "); 
 							} 
 					

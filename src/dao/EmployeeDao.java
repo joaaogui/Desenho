@@ -42,7 +42,7 @@ public class EmployeeDao {
 	public void addEmployee(EmployeeModel employee) {
 
 
-		entityManager.getTransaction().begin();    
+		entityManager.getTransaction().begin();
 		entityManager.persist(employee);
 		entityManager.getTransaction().commit();
 		

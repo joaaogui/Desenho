@@ -153,7 +153,7 @@ public class AddEventView {
 
 		EmployeeModel employee = new EmployeeModel();
 		EmployeeController employeeController = new EmployeeController();
-		String id_string =  LocateEmployee.localizarFuncionariotextField.getText();
+		String id_string =  LocateEmployee.locateformattedTextField.getText();
 		int id = Integer.parseInt(id_string); 
 		employee = employeeController.searchEmployeeById(id);
 		
