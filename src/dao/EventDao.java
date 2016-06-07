@@ -9,7 +9,7 @@ import model.EventModel;
 public class EventDao {
 	public void addEvent(EventModel event){
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Event");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Employee");
 		EntityManager manager = factory.createEntityManager();
 
 		manager.getTransaction().begin();    

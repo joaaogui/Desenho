@@ -39,6 +39,7 @@ public class AddEventView {
 	private static JComboBox tipoEventoComboBox;
 	private JFormattedTextField dataInicialTextField;
 	private JFormattedTextField dataFinalTextField;
+	private JTextField observacoesTextField;
 
 	/**
 	 * Launch the application.
@@ -143,10 +144,10 @@ public class AddEventView {
 		frame.getContentPane().add(lblTipoDeEvento);
 		
 		JComboBox tipoEventoComboBox = new JComboBox();
-		//tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
-		EventModel event = new EventModel();
-		event = new AbonoAnual(event);
-		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String [] {"", event.getNomeEvento()}));
+		tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Abono Anual", "Adicional Noturno Administrativo", "Adicional Noturno Professor", "Afastamento para Tribunal do Juri", "Afastamento Serv. Eleitoral (TRE)", "Atestado Comparecimento", "Atestado Medico", "Dispensa de Ponto para Doa\u00E7ao de Sangue", "Exame Preventivo - LEI 840", "Falta", "Falta Por Paralisa\u00E7ao", "F\u00E9rias", "Horas Nao Trabalhadas", "LG - Licen\u00E7a Gestante", "Licen\u00E7a Gala", "Licen\u00E7a Nojo", "Licen\u00E7a Paternidade", "Licen\u00E7a por Acidente em Servi\u00E7o", "Licen\u00E7a Adotante", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (ate 6 meses)", "Licen\u00E7a de Acompanhamento de Pessoa Doente na Fam\u00EDlia (mais de 6 meses)", "Licen\u00E7a Premio por assiduidade", "Licen\u00E7a para Tratamento de Saude", "Ponto facultativo", "Recesso"}));
+		//EventModel event = new EventModel();
+		//event = new AbonoAnual(event);
+		//tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String [] {"", event.getNomeEvento()}));
 		tipoEventoComboBox.setBounds(33, 397, 276, 20);
 		frame.getContentPane().add(tipoEventoComboBox);
 
@@ -178,16 +179,17 @@ public class AddEventView {
 					e1.printStackTrace();
 				}
 				try {
-					data_final.setTime(dataFinal.parse(dataInicialTextField.getText()));
+					data_final.setTime(dataFinal.parse(dataFinalTextField.getText()));
 				} catch (ParseException e1) {
 					e1.printStackTrace();
 				}
 				
 				event.setDataInicial(data_inicial);
 				event.setDataFinal(data_final);
-				//event.setObserva��o(observa��esTextArea.getText());
+				event.setObservacao(observacoesTextField.getText());
 				//event.setMatriculaProfissional(matriculaTextField.getText());
-				//event.setTipoEvento(tipoEventoComboBox.getToolTipText());
+				String nome = (String) tipoEventoComboBox.getSelectedItem();
+				event.setNomeEvento(nome);
 				
 				EventController eventController = new EventController();
 				
@@ -205,9 +207,10 @@ public class AddEventView {
 		lblObservaes.setBounds(416, 305, 73, 14);
 		frame.getContentPane().add(lblObservaes);
 		
-		JTextArea observacoesTextArea = new JTextArea();
-		observacoesTextArea.setBounds(416, 333, 200, 56);
-		frame.getContentPane().add(observacoesTextArea);
+		observacoesTextField = new JTextField();
+		observacoesTextField.setBounds(416, 335, 200, 54);
+		frame.getContentPane().add(observacoesTextField);
+		observacoesTextField.setColumns(10);
 				
 	}
 }

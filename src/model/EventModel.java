@@ -13,8 +13,10 @@ public class EventModel {
 	@Column
 	protected String nomeEvento;
 	@Column
+	@Temporal(TemporalType.DATE)
 	protected Calendar dataInicial;
 	@Column
+	@Temporal(TemporalType.DATE)
 	protected Calendar dataFinal;
 	@Column
 	protected String observacao;
