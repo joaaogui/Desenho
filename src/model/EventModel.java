@@ -1,6 +1,8 @@
 package model;
 import javax.persistence.*;
 
+import java.util.Calendar;
+
 @Entity
 public class EventModel {
 	
@@ -11,9 +13,9 @@ public class EventModel {
 	@Column
 	protected String nomeEvento;
 	@Column
-	protected String dataInicial;
+	protected Calendar dataInicial;
 	@Column
-	protected String dataFinal;
+	protected Calendar dataFinal;
 	@Column
 	protected String observacao;
 	
@@ -21,7 +23,7 @@ public class EventModel {
 		
 	}
 	
-	public EventModel(int id, String nomeEvento, String dataInicial, String dataFinal, String observacao){
+	public EventModel(int id, String nomeEvento, Calendar dataInicial, Calendar dataFinal, String observacao){
 		this.id = id;
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
@@ -46,12 +48,12 @@ public class EventModel {
 		this.nomeEvento = nomeEvento;
 	}
 
-	public String getDataInicial() {
+	public Calendar getDataInicial() {
 		return dataInicial;
 	}
 	
-	public void setDataInicial(String dataInicial) {
-		this.dataInicial = dataInicial;
+	public void setDataInicial(Calendar dataInicial2) {
+		this.dataInicial = dataInicial2;
 	}
 	
 	public String getObservacao() {
@@ -62,12 +64,13 @@ public class EventModel {
 		this.observacao = observacao;
 	}
 	
-	public String getDataFinal() {
+	public Calendar getDataFinal() {
 		return dataFinal;
 	}
 	
-	public void setDataFinal(String dataFinal) {
-		this.dataFinal = dataFinal;
-	}	
+	public void setDataFinal(Calendar dataFinal2) {
+		this.dataFinal = dataFinal2;
+	}
+
 
 }

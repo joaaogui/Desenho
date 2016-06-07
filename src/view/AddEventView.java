@@ -9,9 +9,11 @@ import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 import controller.EmployeeController;
 import controller.EventController;
+import java.util.Date;
 import decorator.AbonoAnual;
 import model.EmployeeModel;
 import model.EventModel;
@@ -21,8 +23,12 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JFormattedTextField;
 
 public class AddEventView {
 
@@ -30,9 +36,9 @@ public class AddEventView {
 	static JFrame frame;
 	private static JTextField matriculaTextField;
 	private static JTextField nomeTextField;
-	private static JTextField dataInicialTextField;
-	private static JTextField dataFinalTextField;
 	private static JComboBox tipoEventoComboBox;
+	private JFormattedTextField dataInicialTextField;
+	private JFormattedTextField dataFinalTextField;
 
 	/**
 	 * Launch the application.
@@ -53,14 +59,14 @@ public class AddEventView {
 	/**
 	 * Create the application.
 	 */
-	public AddEventView() {
+	public AddEventView(){
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(){
 		frame = new JFrame();
 		frame.setBounds(100, 100, 642, 492);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,21 +107,35 @@ public class AddEventView {
 		lblDataInicial.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDataInicial.setBounds(33, 305, 80, 14);
 		frame.getContentPane().add(lblDataInicial);
-		
-		dataInicialTextField = new JTextField();
-		dataInicialTextField.setBounds(33, 330, 169, 31);
+		MaskFormatter dateMask;
+		try{
+			dateMask = new MaskFormatter("##/##/####");
+			dateMask.setValidCharacters("0123456789");
+			dateMask.setValueContainsLiteralCharacters(true);
+			dataInicialTextField = new JFormattedTextField(dateMask);
+			dataInicialTextField.setBounds(25, 332, 190, 27);
+		}
+		catch(ParseException e2){
+			e2.printStackTrace();
+		}
 		frame.getContentPane().add(dataInicialTextField);
-		dataInicialTextField.setColumns(10);
 		
 		JLabel lblDataFinal = new JLabel("Data Final");
 		lblDataFinal.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDataFinal.setBounds(225, 305, 73, 14);
 		frame.getContentPane().add(lblDataFinal);
-		
-		dataFinalTextField = new JTextField();
-		dataFinalTextField.setBounds(225, 330, 169, 31);
+		MaskFormatter dateMask2;
+		try{
+			dateMask2 = new MaskFormatter("##/##/####");
+			dateMask2.setValidCharacters("0123456789");
+			dateMask2.setValueContainsLiteralCharacters(true);
+			dataFinalTextField = new JFormattedTextField(dateMask2);
+			dataFinalTextField.setBounds(233, 332, 173, 27);
+		}
+		catch(ParseException e2){
+			e2.printStackTrace();
+		}
 		frame.getContentPane().add(dataFinalTextField);
-		dataFinalTextField.setColumns(10);
 		
 		JLabel lblTipoDeEvento = new JLabel("Tipo De Evento");
 		lblTipoDeEvento.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -147,9 +167,24 @@ public class AddEventView {
 			public void actionPerformed(ActionEvent e) {
 			    
 				EventModel event = new EventModel();
+				SimpleDateFormat dataInicial = new SimpleDateFormat("dd/MM/yyyy");
+				SimpleDateFormat dataFinal = new SimpleDateFormat("dd/MM/yyyy");
+				Calendar data_inicial = Calendar.getInstance();
+				Calendar data_final = Calendar.getInstance();
 				
-				event.setDataInicial(dataInicialTextField.getText());
-				event.setDataFinal(dataFinalTextField.getText());
+				try {
+					data_inicial.setTime(dataInicial.parse(dataInicialTextField.getText()));
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				try {
+					data_final.setTime(dataFinal.parse(dataInicialTextField.getText()));
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				
+				event.setDataInicial(data_inicial);
+				event.setDataFinal(data_final);
 				//event.setObserva��o(observa��esTextArea.getText());
 				//event.setMatriculaProfissional(matriculaTextField.getText());
 				//event.setTipoEvento(tipoEventoComboBox.getToolTipText());
@@ -173,5 +208,6 @@ public class AddEventView {
 		JTextArea observacoesTextArea = new JTextArea();
 		observacoesTextArea.setBounds(416, 333, 200, 56);
 		frame.getContentPane().add(observacoesTextArea);
+				
 	}
 }

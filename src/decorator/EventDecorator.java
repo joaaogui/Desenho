@@ -1,5 +1,7 @@
 package decorator;
 
+import java.util.Calendar;
+
 import model.EventModel;
 
 public abstract class EventDecorator extends EventModel{
@@ -21,7 +23,7 @@ public abstract class EventDecorator extends EventModel{
 	}
 	
 	@Override
-	public String getDataInicial() {
+	public Calendar getDataInicial() {
 		return event.getDataInicial();
 	}
 	
@@ -31,7 +33,7 @@ public abstract class EventDecorator extends EventModel{
 	}
 	
 	@Override
-	public String getDataFinal() {
+	public Calendar getDataFinal() {
 		return event.getDataFinal();
 	}
 }

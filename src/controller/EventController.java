@@ -1,12 +1,13 @@
 package controller;
 
-import dao.EmployeeDao;
 import dao.EventDao;
+
+import java.util.Calendar;
 import model.EventModel;
 
 public class EventController {
 	
-	public EventModel newEvent(int id, String nomeEvento, String dataInicial, String dataFinal, String observacao){
+	public EventModel newEvent(int id, String nomeEvento, Calendar dataInicial, Calendar dataFinal, String observacao){
 		EventModel event;
 		
 		event = new EventModel(id, nomeEvento, dataInicial,  dataFinal,  observacao);
