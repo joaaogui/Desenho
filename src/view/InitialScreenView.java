@@ -91,6 +91,13 @@ public class InitialScreenView {
 		frame.getContentPane().add(listagensButton);
 		
 		JButton folhaDePontoButton = new JButton("Folha De Ponto");
+		folhaDePontoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				TimeSheetView timeSheetView = new TimeSheetView();
+				timeSheetView.frame.setVisible(true);
+			}
+		});
 		folhaDePontoButton.setBounds(501, 188, 127, 23);
 		frame.getContentPane().add(folhaDePontoButton);
 		

@@ -10,10 +10,12 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 
 public class TimeSheetView {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField anoTextField;
 	private JTextField matriculaTextField;
 	private JTextField nomeTextField;
@@ -64,6 +66,7 @@ public class TimeSheetView {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JComboBox mesComboBox = new JComboBox();
+		mesComboBox.setModel(new DefaultComboBoxModel(new String[] {"Janeiro ", "Fevereiro", "Mar\u00E7o ", "Abril", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
 		mesComboBox.setBounds(31, 233, 341, 30);
 		frame.getContentPane().add(mesComboBox);
 		
@@ -130,5 +133,9 @@ public class TimeSheetView {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(31, 282, 597, 30);
 		frame.getContentPane().add(separator);
+		
+		JButton btnEmitirFolha = new JButton("Emitir Folha");
+		btnEmitirFolha.setBounds(523, 455, 105, 23);
+		frame.getContentPane().add(btnEmitirFolha);
 	}
 }
