@@ -31,7 +31,7 @@ import java.awt.event.ActionEvent;
 
 public class ShowEmployeeView {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField matriculaTextField;
 	private JTextField nomeTextField;
 	private JPanel panelFuncionais;
@@ -572,8 +572,8 @@ public class ShowEmployeeView {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
-				LocateEmployee eventView = new LocateEmployee();
-				eventView.frame.setVisible(true);	
+				InitialScreenView initialView = new InitialScreenView();
+				initialView.frame.setVisible(true);	
 			}
 		});
 		btnVoltar.setBounds(20, 447, 89, 23);

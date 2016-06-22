@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class InitialScreenView {
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -55,7 +55,7 @@ public class InitialScreenView {
 		cadastroButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				EmployeeView employeeView = new EmployeeView();
+				ShowEmployeeView employeeView = new ShowEmployeeView();
 				employeeView.frame.setVisible(true);		
 			}
 		});
