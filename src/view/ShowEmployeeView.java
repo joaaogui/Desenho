@@ -7,6 +7,14 @@ import java.awt.GridBagLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controller.EmployeeController;
+import model.AcademicDataModel;
+import model.ComplementaryDataModel;
+import model.EmployeeContactModel;
+import model.EmployeeModel;
+import model.FunctionalDataModel;
+
 import javax.swing.JLabel;
 import java.awt.Panel;
 import javax.swing.JButton;
@@ -16,6 +24,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -60,8 +69,11 @@ public class ShowEmployeeView {
 	private JTextField cargoTextField;
 	private JTextField disciplinaTextField;
 	private JTextField funcaoTextField;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField horaEntradaTextField;
+	private JTextField horaSaidaTextField;
+	public JComboBox racaComboBox;
+	public JComboBox posCombobox;
+	private JTextField copitextField;
 
 	/**
 	 * Launch the application.
@@ -299,6 +311,7 @@ public class ShowEmployeeView {
 		panelComplementares.add(lblUf_1);
 		
 		JComboBox racaComboBox = new JComboBox();
+		racaComboBox.setModel(new DefaultComboBoxModel(new String[] {"Branca", "Caucasiana", "Parda", "Negra"}));
 		racaComboBox.setBounds(454, 27, 165, 20);
 		panelComplementares.add(racaComboBox);
 		
@@ -504,10 +517,10 @@ public class ShowEmployeeView {
 		lblCargaHorria.setBounds(10, 82, 127, 14);
 		panelAtuacao.add(lblCargaHorria);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 129, 99, 20);
-		panelAtuacao.add(textField);
-		textField.setColumns(10);
+		horaEntradaTextField = new JTextField();
+		horaEntradaTextField.setBounds(10, 129, 99, 20);
+		panelAtuacao.add(horaEntradaTextField);
+		horaEntradaTextField.setColumns(10);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(10, 57, 609, 14);
@@ -523,10 +536,10 @@ public class ShowEmployeeView {
 		lblHoraDeSada.setBounds(143, 107, 87, 14);
 		panelAtuacao.add(lblHoraDeSada);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(144, 129, 109, 20);
-		panelAtuacao.add(textField_1);
-		textField_1.setColumns(10);
+		horaSaidaTextField = new JTextField();
+		horaSaidaTextField.setBounds(144, 129, 109, 20);
+		panelAtuacao.add(horaSaidaTextField);
+		horaSaidaTextField.setColumns(10);
 		
 		JLabel lblDias = new JLabel("Dias ");
 		lblDias.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -545,6 +558,15 @@ public class ShowEmployeeView {
 		});
 		list.setBounds(300, 131, 114, 92);
 		panelAtuacao.add(list);
+		
+		copitextField = new JTextField();
+		copitextField.setBounds(10, 203, 86, 20);
+		panelAtuacao.add(copitextField);
+		copitextField.setColumns(10);
+		
+		JLabel lblCopi = new JLabel("COPI");
+		lblCopi.setBounds(10, 188, 46, 14);
+		panelAtuacao.add(lblCopi);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -573,17 +595,137 @@ public class ShowEmployeeView {
 		btnDesativar.setBounds(420, 447, 89, 23);
 		frame.getContentPane().add(btnDesativar);
 		
-		JButton btnExcluir = new JButton("Salvar Edi\u00E7\u00F5es");
-		btnExcluir.addActionListener(new ActionListener() {
+		JButton btnSalvar = new JButton("Salvar Edi\u00E7\u00F5es");
+		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				EmployeeModel employee = new EmployeeModel(nomeTextField.getText(), matriculaTextField.getText(), 
+						   (String) tipoComboBox.getSelectedItem(), admissaoTextField.getText(), 
+						   nascimentoTextField.getText(), sexoTextField.getText(), 
+						   rgTextField.getText(), emissorTextField.getText(), 
+						   cpfTextField.getText());
+				//Dados principais
+				employee.setMatricula(nomeTextField.getText());
+				employee.setNome(matriculaTextField.getText()); 
+				employee.setTipo((String) tipoComboBox.getSelectedItem()); 
+				employee.setAdmissao(admissaoTextField.getText());
+				employee.setDataNascimento(nascimentoTextField.getText());
+				employee.setSexo(sexoTextField.getText());
+				employee.setRG(rgTextField.getText());
+				employee.setOrgaoRG(emissorTextField.getText());
+				employee.setCPF(cpfTextField.getText());
+
+				//Dados de contato
+				addContactData(employee);
+				
+				//Dados Complementares
+				addComplementaryData(employee);
+				
+				//Dados Academicos
+				addAcademicData(employee);
+				
+				//Dados Funcionais
+				addFunctionalData(employee);
+
+				// fazendo a validação dos dados 
+				if ((matriculaTextField.getText().isEmpty()) || (nomeTextField.getText().isEmpty()) || 
+				(admissaoTextField.getText().isEmpty()) ||
+				(nascimentoTextField.getText().isEmpty()) || (sexoTextField.getText().isEmpty()) ||
+				(rgTextField.getText().isEmpty()) || (emissorTextField.getText().isEmpty()) ||
+				(cpfTextField.getText().isEmpty())) {    
+				JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios"); 
+				} else {   
+				EmployeeController employeeController = new EmployeeController();  
+				employeeController.addEmployee(employee); 
+				JOptionPane.showMessageDialog(null, "Usuário "+nomeTextField.getText()+" inserido com sucesso! "); 
+} 
+
+				// apaga os dados preenchidos nos campos de texto 
+						matriculaTextField.setText(""); 
+						nomeTextField.setText("");
+						admissaoTextField.setText("");
+						nascimentoTextField.setText("");
+						sexoTextField.setText("");
+						rgTextField.setText("");
+						emissorTextField.setText("");
+						cpfTextField.setText("");
 			}
 		});
-		btnExcluir.setBounds(519, 447, 125, 23);
-		frame.getContentPane().add(btnExcluir);
+		btnSalvar.setBounds(519, 447, 125, 23);
+		frame.getContentPane().add(btnSalvar);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(ShowEmployeeView.class.getResource("/resources/SGP2.png")));
 		lblNewLabel_2.setBounds(75, -13, 504, 165);
 		frame.getContentPane().add(lblNewLabel_2);
+	}
+	
+	private void addContactData(EmployeeModel employee){
+		EmployeeContactModel employeeContact = new EmployeeContactModel(enderecoTextField.getText(), bairroTextField.getText(), 
+				   cidadeTextField.getText(), ufTextField.getText(), 
+				   cepTextField.getText(), telFixoTextField.getText(), 
+				   telCelularTextField.getText(), emailTextField.getText());
+		employeeContact.setEndereco(enderecoTextField.getText());
+		employeeContact.setBairro(bairroTextField.getText());
+		employeeContact.setCidade(cidadeTextField.getText());
+		employeeContact.setUf(ufTextField.getText());
+		employeeContact.setCep(cepTextField.getText());
+		employeeContact.setTelFixo(telFixoTextField.getText());
+		employeeContact.setTelCelular(telCelularTextField.getText());
+		employeeContact.setEmail(emailTextField.getText());
+		
+		employee.setContato(employeeContact);
+		
+	}
+	
+	private void addComplementaryData(EmployeeModel employee){
+		ComplementaryDataModel employeeComplementary = new ComplementaryDataModel(naturalidadeTextField.getText(), nacionalidadeTextField.getText(), 
+				   (String) racaComboBox.getSelectedItem(), pisTextField.getText(), 
+				   emissaoPisTextField.getText(), tituloEleitoralTextField.getText(), 
+				   zonaTextField.getText(), conjugeTextField.getText(), 
+				   estadoCivilTextField.getText(), nomePaiTextField.getText(),
+				   nomemaeTextField.getText());
+		employeeComplementary.setNaturalidade(naturalidadeTextField.getText());
+		employeeComplementary.setNacionalidade(nacionalidadeTextField.getText());
+		employeeComplementary.setRaca((String)racaComboBox.getSelectedItem());
+		employeeComplementary.setPisPasep(pisTextField.getText());
+		employeeComplementary.setEmissaoPis(emissaoPisTextField.getText());
+		employeeComplementary.setTituloEleitoral(tituloEleitoralTextField.getText());
+		employeeComplementary.setZonaEleitoral(zonaTextField.getText());
+		employeeComplementary.setNomeConjuge(conjugeTextField.getText());
+		employeeComplementary.setEstadoCivil(estadoCivilTextField.getText());
+		employeeComplementary.setNomePai(nomePaiTextField.getText());
+		employeeComplementary.setNomeMae(nomemaeTextField.getText());
+		
+		employee.setDadosComplementares(employeeComplementary);
+		
+	}
+	
+	private void addAcademicData(EmployeeModel employee){
+		AcademicDataModel employeeAcademic = new AcademicDataModel(escolaridadeTextField.getText(), cursoTextField.getText(), 
+				   licenciaturaTextField.getText(), instituicaoTextField.getText(), 
+				   (String) posCombobox.getSelectedItem());
+		employeeAcademic.setEscolaridade(escolaridadeTextField.getText());
+		employeeAcademic.setCurso(cursoTextField.getText());
+		employeeAcademic.setLicenciatura(licenciaturaTextField.getText());
+		employeeAcademic.setInstituicao(instituicaoTextField.getText());
+		employeeAcademic.setPosGraduacao((String) posCombobox.getSelectedItem());
+		
+		employee.setDadosAcademicos(employeeAcademic);
+		
+	}
+	
+	private void addFunctionalData(EmployeeModel employee){
+		FunctionalDataModel employeeFunctional = new FunctionalDataModel(cargoTextField.getText(), disciplinaTextField.getText(), 
+				   funcaoTextField.getText(), horaEntradaTextField.getText(), 
+				   horaSaidaTextField.getText(), copitextField.getText());
+		employeeFunctional.setCargo(cargoTextField.getText());
+		employeeFunctional.setDisciplinaDeConcurso(disciplinaTextField.getText());
+		employeeFunctional.setFuncao(funcaoTextField.getText());
+		employeeFunctional.setEntrada(horaEntradaTextField.getText());
+		employeeFunctional.setSaida(horaSaidaTextField.getText());
+		employeeFunctional.setCOPIExterna(copitextField.getText());
+		
+		employee.setDadosFuncionais(employeeFunctional);
+		
 	}
 }
