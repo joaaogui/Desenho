@@ -6,21 +6,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import com.itextpdf.text.DocumentException;
+
+import pdf.FolhaDePonto;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
 
 public class TimeSheetView {
 
 	JFrame frame;
 	private JTextField anoTextField;
 	private JTextField matriculaTextField;
-	private JTextField nomeTextField;
-	private JTextField cargoTextField;
-	private JTextField admissaoTextField;
 	private JTextField observacoesTextField;
 
 	/**
@@ -72,11 +77,11 @@ public class TimeSheetView {
 		
 		JLabel lblNewLabel_2 = new JLabel("Ano");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(491, 208, 46, 14);
+		lblNewLabel_2.setBounds(419, 208, 46, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		anoTextField = new JTextField();
-		anoTextField.setBounds(491, 233, 137, 30);
+		anoTextField.setBounds(419, 233, 209, 30);
 		frame.getContentPane().add(anoTextField);
 		anoTextField.setColumns(10);
 		
@@ -90,43 +95,13 @@ public class TimeSheetView {
 		frame.getContentPane().add(matriculaTextField);
 		matriculaTextField.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Nome");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_4.setBounds(184, 323, 46, 14);
-		frame.getContentPane().add(lblNewLabel_4);
-		
-		nomeTextField = new JTextField();
-		nomeTextField.setBounds(184, 348, 188, 30);
-		frame.getContentPane().add(nomeTextField);
-		nomeTextField.setColumns(10);
-		
-		JLabel lblNewLabel_5 = new JLabel("Cargo");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(382, 323, 46, 14);
-		frame.getContentPane().add(lblNewLabel_5);
-		
-		cargoTextField = new JTextField();
-		cargoTextField.setBounds(382, 348, 105, 30);
-		frame.getContentPane().add(cargoTextField);
-		cargoTextField.setColumns(10);
-		
-		JLabel lblNewLabel_6 = new JLabel("Data De Admiss\u00E3o");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_6.setBounds(497, 324, 131, 12);
-		frame.getContentPane().add(lblNewLabel_6);
-		
-		admissaoTextField = new JTextField();
-		admissaoTextField.setBounds(497, 348, 131, 30);
-		frame.getContentPane().add(admissaoTextField);
-		admissaoTextField.setColumns(10);
-		
 		JLabel lblNewLabel_7 = new JLabel("Observa\u00E7\u00F5es");
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_7.setBounds(28, 389, 94, 14);
+		lblNewLabel_7.setBounds(184, 323, 94, 14);
 		frame.getContentPane().add(lblNewLabel_7);
 		
 		observacoesTextField = new JTextField();
-		observacoesTextField.setBounds(28, 414, 600, 30);
+		observacoesTextField.setBounds(184, 348, 444, 30);
 		frame.getContentPane().add(observacoesTextField);
 		observacoesTextField.setColumns(10);
 		
@@ -135,7 +110,18 @@ public class TimeSheetView {
 		frame.getContentPane().add(separator);
 		
 		JButton btnEmitirFolha = new JButton("Emitir Folha");
-		btnEmitirFolha.setBounds(523, 455, 105, 23);
+		btnEmitirFolha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					FolhaDePonto.generatePDF("Janeiro", "2013", 123456 , "Participou De Paralisação dia 21/01");
+				} catch (DocumentException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		btnEmitirFolha.setBounds(514, 440, 117, 30);
 		frame.getContentPane().add(btnEmitirFolha);
 	}
 }

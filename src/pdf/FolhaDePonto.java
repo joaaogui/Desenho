@@ -1,9 +1,13 @@
 package pdf;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
@@ -15,8 +19,9 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class FolhaDePonto {
-    public static void main(String[] args) throws Exception {
-    	Document doc = null;
+	
+	public static void generatePDF(String mesFolha, String anoFolha, int matriculaFolha, String observacaoFolha) throws DocumentException, MalformedURLException, IOException{
+		Document doc = null;
     	OutputStream os = null;
     	
     	try{
@@ -40,14 +45,14 @@ public class FolhaDePonto {
             header.setColspan(2);
             header.setBackgroundColor(BaseColor.LIGHT_GRAY);
             
-            PdfPCell mes = new PdfPCell(new Paragraph("Mês De Referência", fbold));   
-            mes.setBackgroundColor(BaseColor.LIGHT_GRAY);              
+            PdfPCell mesCell = new PdfPCell(new Paragraph("Mês De Referência", fbold));   
+            mesCell.setBackgroundColor(BaseColor.LIGHT_GRAY);              
             
-            PdfPCell background = new PdfPCell(new Paragraph(""));
+            PdfPCell background = new PdfPCell(new Paragraph(mesFolha));
             background.setBackgroundColor(BaseColor.LIGHT_GRAY); 
             
             table.addCell(header);
-            table.addCell(mes);
+            table.addCell(mesCell);
             table.addCell(background);
             
             PdfPCell nome = new PdfPCell(new Paragraph("Nome", fbold));
@@ -57,10 +62,11 @@ public class FolhaDePonto {
             nomeEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(nomeEntrada);
             
-            PdfPCell matricula = new PdfPCell(new Paragraph("Matrícula", fbold));
-            matricula.setBackgroundColor(BaseColor.LIGHT_GRAY);
-            table.addCell(matricula);
-            PdfPCell matriculaEntrada = new PdfPCell(new Paragraph("", f));
+            PdfPCell matriculaCell = new PdfPCell(new Paragraph("Matrícula", fbold));
+            matriculaCell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            table.addCell(matriculaCell);
+            String matriculaString = Integer.toString(matriculaFolha);
+            PdfPCell matriculaEntrada = new PdfPCell(new Paragraph(matriculaString, f));
             matriculaEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(matriculaEntrada);
             
@@ -107,7 +113,7 @@ public class FolhaDePonto {
             observacoes.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(observacoes);
             
-            PdfPCell observacoesEntrada = new PdfPCell(new Paragraph(""));
+            PdfPCell observacoesEntrada = new PdfPCell(new Paragraph(observacaoFolha));
             observacoesEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             observacoesEntrada.setColspan(3);
             table.addCell(observacoesEntrada);
@@ -129,6 +135,8 @@ public class FolhaDePonto {
             }
             */
     	}
-    	
+	}
+    public static void main(String[] args) throws Exception {
+    		
     }
 }
