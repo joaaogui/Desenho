@@ -1,4 +1,6 @@
 package pdf;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,9 +20,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import model.EmployeeModel;
+
 public class FolhaDePonto {
 	
-	public static void generatePDF(String mesFolha, String anoFolha, int matriculaFolha, String observacaoFolha) throws DocumentException, MalformedURLException, IOException{
+	public static void generatePDF(String mesFolha, String anoFolha, String observacaoFolha, EmployeeModel employee) throws DocumentException, MalformedURLException, IOException{
 		Document doc = null;
     	OutputStream os = null;
     	
@@ -58,15 +62,14 @@ public class FolhaDePonto {
             PdfPCell nome = new PdfPCell(new Paragraph("Nome", fbold));
             nome.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(nome);
-            PdfPCell nomeEntrada = new PdfPCell(new Paragraph("", f));
+            PdfPCell nomeEntrada = new PdfPCell(new Paragraph(employee.getNome(), f));
             nomeEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(nomeEntrada);
             
             PdfPCell matriculaCell = new PdfPCell(new Paragraph("Matrícula", fbold));
             matriculaCell.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(matriculaCell);
-            String matriculaString = Integer.toString(matriculaFolha);
-            PdfPCell matriculaEntrada = new PdfPCell(new Paragraph(matriculaString, f));
+            PdfPCell matriculaEntrada = new PdfPCell(new Paragraph(employee.getMatricula(), f));
             matriculaEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(matriculaEntrada);
             
@@ -120,6 +123,9 @@ public class FolhaDePonto {
             
             doc.add(table);
             doc.close();
+            
+            File file = new File("Folha De Ponto.pdf");
+            Desktop.getDesktop().open(file);
            
             
         

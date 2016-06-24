@@ -4,11 +4,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 import com.itextpdf.text.DocumentException;
 
+import controller.EmployeeController;
+import model.EmployeeModel;
 import pdf.FolhaDePonto;
 
 import java.awt.Font;
@@ -27,6 +30,7 @@ public class TimeSheetView {
 	private JTextField anoTextField;
 	private JTextField matriculaTextField;
 	private JTextField observacoesTextField;
+	private JTextField mesTextField;
 
 	/**
 	 * Launch the application.
@@ -70,10 +74,12 @@ public class TimeSheetView {
 		lblNewLabel_1.setBounds(31, 208, 143, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
+		/*
 		JComboBox mesComboBox = new JComboBox();
 		mesComboBox.setModel(new DefaultComboBoxModel(new String[] {"Janeiro ", "Fevereiro", "Mar\u00E7o ", "Abril", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
 		mesComboBox.setBounds(31, 233, 341, 30);
 		frame.getContentPane().add(mesComboBox);
+		*/
 		
 		JLabel lblNewLabel_2 = new JLabel("Ano");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -113,15 +119,34 @@ public class TimeSheetView {
 		btnEmitirFolha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
-					FolhaDePonto.generatePDF("Janeiro", "2013", 123456 , "Participou De Paralisação dia 21/01");
-				} catch (DocumentException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				EmployeeController employeeController = new EmployeeController();
+				EmployeeModel employee = new EmployeeModel();
+				
+				String id_string = matriculaTextField.getText();
+				int id = Integer.parseInt(id_string); 
+				employee = employeeController.searchEmployeeById(id);
+				
+				if(employee != null){
+				
+					try {
+						FolhaDePonto.generatePDF(mesTextField.getText(), anoTextField.getText() , observacoesTextField.getText(),employee);
+					} catch (DocumentException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Funcionário Não Encontrado - Matricula: " + id_string);
+
 				}
 			}
 		});
 		btnEmitirFolha.setBounds(514, 440, 117, 30);
 		frame.getContentPane().add(btnEmitirFolha);
+		
+		mesTextField = new JTextField();
+		mesTextField.setBounds(31, 233, 378, 30);
+		frame.getContentPane().add(mesTextField);
+		mesTextField.setColumns(10);
 	}
 }
