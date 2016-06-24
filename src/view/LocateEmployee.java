@@ -108,6 +108,16 @@ public class LocateEmployee {
 		btnBuscar.setBounds(529, 253, 89, 23);
 		frame.getContentPane().add(btnBuscar);
 		
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				InitialScreenView initialView = new InitialScreenView();
+				initialView.frame.setVisible(true);	
+			}
+		});
+		voltarButton.setBounds(25, 436, 99, 34);
+		frame.getContentPane().add(voltarButton);
 		
 	}
 }

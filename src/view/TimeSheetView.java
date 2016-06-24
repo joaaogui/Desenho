@@ -148,5 +148,16 @@ public class TimeSheetView {
 		mesTextField.setBounds(31, 233, 378, 30);
 		frame.getContentPane().add(mesTextField);
 		mesTextField.setColumns(10);
+		
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				InitialScreenView initialView = new InitialScreenView();
+				initialView.frame.setVisible(true);	
+			}
+		});
+		voltarButton.setBounds(31, 440, 94, 30);
+		frame.getContentPane().add(voltarButton);
 	}
 }

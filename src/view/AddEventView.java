@@ -114,7 +114,7 @@ public class AddEventView {
 			dateMask.setValidCharacters("0123456789");
 			dateMask.setValueContainsLiteralCharacters(true);
 			dataInicialTextField = new JFormattedTextField(dateMask);
-			dataInicialTextField.setBounds(25, 332, 190, 27);
+			dataInicialTextField.setBounds(33, 330, 190, 27);
 		}
 		catch(ParseException e2){
 			e2.printStackTrace();
@@ -123,7 +123,7 @@ public class AddEventView {
 		
 		JLabel lblDataFinal = new JLabel("Data Final");
 		lblDataFinal.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDataFinal.setBounds(225, 305, 73, 14);
+		lblDataFinal.setBounds(233, 305, 73, 14);
 		frame.getContentPane().add(lblDataFinal);
 		MaskFormatter dateMask2;
 		try{
@@ -131,7 +131,7 @@ public class AddEventView {
 			dateMask2.setValidCharacters("0123456789");
 			dateMask2.setValueContainsLiteralCharacters(true);
 			dataFinalTextField = new JFormattedTextField(dateMask2);
-			dataFinalTextField.setBounds(233, 332, 173, 27);
+			dataFinalTextField.setBounds(233, 330, 173, 27);
 		}
 		catch(ParseException e2){
 			e2.printStackTrace();
@@ -140,7 +140,7 @@ public class AddEventView {
 		
 		JLabel lblTipoDeEvento = new JLabel("Tipo De Evento");
 		lblTipoDeEvento.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblTipoDeEvento.setBounds(33, 375, 106, 14);
+		lblTipoDeEvento.setBounds(33, 368, 106, 14);
 		frame.getContentPane().add(lblTipoDeEvento);
 		
 		JComboBox tipoEventoComboBox = new JComboBox();
@@ -148,7 +148,7 @@ public class AddEventView {
 		//EventModel event = new EventModel();
 		//event = new AbonoAnual(event);
 		//tipoEventoComboBox.setModel(new DefaultComboBoxModel(new String [] {"", event.getNomeEvento()}));
-		tipoEventoComboBox.setBounds(33, 397, 276, 20);
+		tipoEventoComboBox.setBounds(33, 388, 276, 20);
 		frame.getContentPane().add(tipoEventoComboBox);
 
 		EmployeeModel employee = new EmployeeModel();
@@ -195,7 +195,7 @@ public class AddEventView {
 				
 				eventController.addEvent(event);
 				
-				//JOptionPane.showMessageDialog(null, "Evento Adicionado Com Sucesso na MAtricula: "+ event.getMatriculaProfissional());
+				JOptionPane.showMessageDialog(null, "Evento Adicionado Com Sucesso: " );
 				
 			}
 		});
@@ -211,6 +211,17 @@ public class AddEventView {
 		observacoesTextField.setBounds(416, 335, 200, 54);
 		frame.getContentPane().add(observacoesTextField);
 		observacoesTextField.setColumns(10);
+		
+		JButton voltarButton = new JButton("Voltar");
+		voltarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				InitialScreenView initialView = new InitialScreenView();
+				initialView.frame.setVisible(true);	
+			}
+		});
+		voltarButton.setBounds(33, 419, 89, 23);
+		frame.getContentPane().add(voltarButton);
 				
 	}
 }
