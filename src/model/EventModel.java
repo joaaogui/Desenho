@@ -21,6 +21,11 @@ public class EventModel {
 	@Column
 	protected String observacao;
 	
+	@JoinColumn(name = "employee", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+	public EmployeeModel employee;
+	
+	
 	public EventModel(){
 		
 	}
@@ -73,6 +78,12 @@ public class EventModel {
 	public void setDataFinal(Calendar dataFinal2) {
 		this.dataFinal = dataFinal2;
 	}
-
+	
+	public EmployeeModel getEmployee(){
+		return employee;
+	}
+	public void setEmployee(EmployeeModel employee){
+		this.employee = employee;
+	}
 
 }
