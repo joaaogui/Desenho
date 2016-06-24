@@ -8,13 +8,13 @@ import javax.persistence.Query;
 import model.EmployeeModel;
 
 public class EmployeeDao {
-	
+	/*
 	private static EmployeeDao instance;
 	protected EntityManager entityManager;
 	
 	public static EmployeeDao getInstance(){
 		if(instance == null)
-			initializeInstance();
+			instance = new EmployeeDao();
 		
 		return instance;
 	}
@@ -37,21 +37,22 @@ public class EmployeeDao {
 			entityManager = factory.createEntityManager();
 		}
 		return entityManager;
-	}
+	}*/
 
 	public void addEmployee(EmployeeModel employee) {
-
-
-		entityManager.getTransaction().begin();
-		entityManager.persist(employee);
-		entityManager.getTransaction().commit();
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Employee");
+		EntityManager manager = factory.createEntityManager();
+		manager.getTransaction().begin();
+		manager.persist(employee);
+		manager.getTransaction().commit();
 		
 	}
 	
 	public EmployeeModel searchEmployee(String matricula){
-		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Employee");
+		EntityManager manager = factory.createEntityManager();
 		String SQL = "Select * from Employee where";	
-		Query query =  entityManager.createNativeQuery(SQL);
+		Query query =  manager.createNativeQuery(SQL);
 		query.setParameter("matricula", matricula);
 		EmployeeModel employee = (EmployeeModel) query.getSingleResult();
 		

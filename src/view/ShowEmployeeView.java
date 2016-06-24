@@ -71,9 +71,9 @@ public class ShowEmployeeView {
 	private JTextField funcaoTextField;
 	private JTextField horaEntradaTextField;
 	private JTextField horaSaidaTextField;
-	public JComboBox racaComboBox;
-	public JComboBox posCombobox;
 	private JTextField copitextField;
+	private JTextField racatextField;
+	private JTextField postextField;
 
 	/**
 	 * Launch the application.
@@ -310,11 +310,6 @@ public class ShowEmployeeView {
 		lblUf_1.setBounds(327, 11, 46, 14);
 		panelComplementares.add(lblUf_1);
 		
-		JComboBox racaComboBox = new JComboBox();
-		racaComboBox.setModel(new DefaultComboBoxModel(new String[] {"Branca", "Caucasiana", "Parda", "Negra"}));
-		racaComboBox.setBounds(454, 27, 165, 20);
-		panelComplementares.add(racaComboBox);
-		
 		JLabel lblCorraa = new JLabel("Cor/Ra\u00E7a");
 		lblCorraa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCorraa.setBounds(454, 11, 77, 14);
@@ -425,6 +420,11 @@ public class ShowEmployeeView {
 		panelComplementares.add(nomemaeTextField);
 		nomemaeTextField.setColumns(10);
 		
+		racatextField = new JTextField();
+		racatextField.setBounds(454, 27, 165, 20);
+		panelComplementares.add(racatextField);
+		racatextField.setColumns(10);
+		
 		JPanel panelAcademicos = new JPanel();
 		tabbedPane.addTab("Dados Acad\u00EAmicos", null, panelAcademicos, null);
 		panelAcademicos.setLayout(null);
@@ -474,9 +474,10 @@ public class ShowEmployeeView {
 		lblPs.setBounds(321, 57, 101, 14);
 		panelAcademicos.add(lblPs);
 		
-		JComboBox posComboBox = new JComboBox();
-		posComboBox.setBounds(321, 73, 150, 20);
-		panelAcademicos.add(posComboBox);
+		postextField = new JTextField();
+		postextField.setBounds(324, 73, 295, 20);
+		panelAcademicos.add(postextField);
+		postextField.setColumns(10);
 		
 		JPanel panelAtuacao = new JPanel();
 		tabbedPane.addTab("Atua\u00E7\u00E3o", null, panelAtuacao, null);
@@ -679,14 +680,14 @@ public class ShowEmployeeView {
 	
 	private void addComplementaryData(EmployeeModel employee){
 		ComplementaryDataModel employeeComplementary = new ComplementaryDataModel(naturalidadeTextField.getText(), nacionalidadeTextField.getText(), 
-				   (String) racaComboBox.getSelectedItem(), pisTextField.getText(), 
+				   racatextField.getText(), pisTextField.getText(), 
 				   emissaoPisTextField.getText(), tituloEleitoralTextField.getText(), 
 				   zonaTextField.getText(), conjugeTextField.getText(), 
 				   estadoCivilTextField.getText(), nomePaiTextField.getText(),
 				   nomemaeTextField.getText());
 		employeeComplementary.setNaturalidade(naturalidadeTextField.getText());
 		employeeComplementary.setNacionalidade(nacionalidadeTextField.getText());
-		employeeComplementary.setRaca((String)racaComboBox.getSelectedItem());
+		employeeComplementary.setRaca(racatextField.getText());
 		employeeComplementary.setPisPasep(pisTextField.getText());
 		employeeComplementary.setEmissaoPis(emissaoPisTextField.getText());
 		employeeComplementary.setTituloEleitoral(tituloEleitoralTextField.getText());
@@ -703,12 +704,12 @@ public class ShowEmployeeView {
 	private void addAcademicData(EmployeeModel employee){
 		AcademicDataModel employeeAcademic = new AcademicDataModel(escolaridadeTextField.getText(), cursoTextField.getText(), 
 				   licenciaturaTextField.getText(), instituicaoTextField.getText(), 
-				   (String) posCombobox.getSelectedItem());
+				   postextField.getText());
 		employeeAcademic.setEscolaridade(escolaridadeTextField.getText());
 		employeeAcademic.setCurso(cursoTextField.getText());
 		employeeAcademic.setLicenciatura(licenciaturaTextField.getText());
 		employeeAcademic.setInstituicao(instituicaoTextField.getText());
-		employeeAcademic.setPosGraduacao((String) posCombobox.getSelectedItem());
+		employeeAcademic.setPosGraduacao(postextField.getText());
 		
 		employee.setDadosAcademicos(employeeAcademic);
 		
