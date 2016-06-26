@@ -76,14 +76,14 @@ public class FolhaDePonto {
             PdfPCell cargo = new PdfPCell(new Paragraph("Cargo", fbold));
             cargo.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cargo);
-            PdfPCell cargoEntrada = new PdfPCell(new Paragraph("", f));
+            PdfPCell cargoEntrada = new PdfPCell(new Paragraph(employee.dadosFuncionais.cargo, f));
             cargoEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(cargoEntrada);
             
             PdfPCell funcao = new PdfPCell(new Paragraph("Função", fbold));
             funcao.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(funcao);
-            PdfPCell funcaoEntrada = new PdfPCell(new Paragraph("", f));
+            PdfPCell funcaoEntrada = new PdfPCell(new Paragraph(employee.dadosFuncionais.funcao, f));
             funcaoEntrada.setBackgroundColor(BaseColor.LIGHT_GRAY);
             table.addCell(funcaoEntrada);
             
@@ -108,8 +108,8 @@ public class FolhaDePonto {
             	dias.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 table.addCell(dias);
                 table.addCell("");
-                table.addCell("");
-                table.addCell("");
+                table.addCell(employee.dadosFuncionais.entrada);
+                table.addCell(employee.dadosFuncionais.saida);
             }
             
             PdfPCell observacoes = new PdfPCell(new Paragraph("Observações", fbold));
